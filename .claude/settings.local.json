@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(sips -g pixelWidth -g pixelHeight products-trio-flying.webp)",
+      "Bash(pip3 install *)"
+    ]
+  }
+}
