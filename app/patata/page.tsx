@@ -4,14 +4,14 @@ export const metadata: Metadata = { title: 'Patata · Flor de Sal · Santa Papa'
 export default function PatataPage() {
   return (
   <main id="top">
-    <section className="grand-hero product-top">
+    <section className="grand-hero product-top patata-hero">
       <img className="vine vine-left" src="/img/flowers-left.webp" alt="" /><img className="vine vine-right" src="/img/flowers-right.webp" alt="" />
       <div className="hero-shell split-reveal expanded reveal">
         <img className="full-relic" src="/img/Patatas 4.webp" alt="Chips de patata flotando" />
         <div className="hero-overlay"></div>
         <div className="scroll-cue" aria-hidden="true"><span /></div>
       </div>
-      <h1>El origen dorado.</h1>
+      <h1 className="reveal">El origen dorado.</h1>
     </section>
     <section className="moving-bag section-pad">
       <img className="halo-bg" src="/img/halo.webp" alt="" />

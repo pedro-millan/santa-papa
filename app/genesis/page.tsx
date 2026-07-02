@@ -3,7 +3,7 @@ export const metadata: Metadata = { title: 'Génesis · Santa Papa' }
 export default function GenesisPage() {
   return (
   <main id="top">
-    <section className="grand-hero">
+    <section className="grand-hero genesis-hero">
       <img className="vine vine-left" src="/img/flowers-left.webp" alt="" /><img className="vine vine-right" src="/img/flowers-right.webp" alt="" />
       <div className="hero-shell split-reveal expanded reveal">
         <img className="full-relic" src="/img/patata-story-02.webp" alt="Bodegón exterior Santa Papa" />
@@ -26,7 +26,7 @@ export default function GenesisPage() {
       <article className="parallax-card reverse"><div className="fixed-media cartel-cocina-media" style={{backgroundImage:"url('/img/mano-variedades-2.webp')"}} /><div><span>&quot;La concepción&quot;</span><h3>Tres epifanías del snack</h3><p>Con unos cimientos claros, y la vista clavada en un horizonte innovador, se gestaron 3 variedades de producto partiendo de propuestas naturales, sanas y sabrosas: la patata, el boniato y la alcachofa.</p></div></article>
     </section>
     <section className="image-liturgy section-pad genesis-liturgy">
-      <article className="parallax-card"><div className="fixed-media cartel-cocina-media" style={{backgroundImage:"url('/img/bodegon-patata-altar.webp')"}} /><div><span>&quot;El resultado&quot;</span><h3>Venerado azabache</h3><p>El culmen fue Santa Papa: marca en la que convergen una sátira pulcritud y un producto premium para dar a luz un nuevo prisma desde el que ver el aperitivo.</p></div></article>
+      <article className="parallax-card"><div className="fixed-media cartel-cocina-media altar-media" style={{backgroundImage:"url('/img/bodegon-patata-altar.webp')"}} /><div><span>&quot;El resultado&quot;</span><h3>Venerado azabache</h3><p>El culmen fue Santa Papa: marca en la que convergen una sátira pulcritud y un producto premium para dar a luz un nuevo prisma desde el que ver el aperitivo.</p></div></article>
     </section>
   </main>)
 }

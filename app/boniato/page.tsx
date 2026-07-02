@@ -4,14 +4,14 @@ export const metadata: Metadata = { title: 'Boniato · Pimentón & Lime · Santa
 export default function BoniatoPage() {
   return (
   <main id="top">
-    <section className="grand-hero product-top">
+    <section className="grand-hero product-top boniato-hero">
       <img className="vine vine-left" src="/img/flowers-left.webp" alt="" /><img className="vine vine-right" src="/img/flowers-right.webp" alt="" />
       <div className="hero-shell split-reveal expanded reveal">
         <img className="full-relic" src="/img/Boniato 2.webp" alt="Chips de boniato flotando" />
         <div className="hero-overlay"></div>
         <div className="scroll-cue" aria-hidden="true"><span /></div>
       </div>
-      <h1>La eucaristía vermeja.</h1>
+      <h1 className="reveal">La eucaristía vermeja.</h1>
     </section>
     <section className="moving-bag section-pad">
       <img className="halo-bg" src="/img/halo.webp" alt="" />

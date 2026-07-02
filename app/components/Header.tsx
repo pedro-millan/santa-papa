@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="site-header" id="siteHeader">
       <Link className="brand" href="/" aria-label="Santa Papa - Santuario">
-        <img src="/img/logo-gold-black.webp" alt="Santa Papa" />
+        <img src="/img/LOGO-09tr.png" alt="Santa Papa" />
       </Link>
       <button className="nav-toggle" aria-label="Abrir navegación" aria-expanded="false">
         <span /><span />
@@ -13,6 +13,7 @@ export default function Header() {
         <Link href="/" data-nav="santuario">Santuario</Link>
         <div className="nav-drop" data-dropdown="">
           <Link href="/pecado" data-nav="pecado">El Pecado</Link>
+          <button type="button" className="nav-drop-toggle" aria-label="Mostrar productos de El Pecado" aria-expanded="false" />
           <div className="drop-panel">
             <Link href="/patata"><small>I</small> Patata · Flor de Sal</Link>
             <Link href="/boniato"><small>II</small> Boniato · Pimentón & Lime</Link>

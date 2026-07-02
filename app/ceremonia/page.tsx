@@ -3,7 +3,7 @@ export const metadata: Metadata = { title: 'La Ceremonia · Santa Papa' }
 export default function CeremoniaPage() {
   return (
   <main id="top">
-    <section className="grand-hero">
+    <section className="grand-hero ceremonia-hero">
       <img className="vine vine-left" src="/img/flowers-left.webp" alt="cenefa izquierda" /><img className="vine vine-right" src="/img/flowers-right.webp" alt="cenefa derecha" />
       <div className="hero-shell split-reveal expanded reveal">
         <img className="full-relic" src="/img/bodegon-exterior.webp" alt="Bodegón de mesa Santa Papa" />

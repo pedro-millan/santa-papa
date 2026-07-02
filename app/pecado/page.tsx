@@ -4,7 +4,7 @@ export const metadata: Metadata = { title: 'El Pecado · Santa Papa' }
 export default function PecadoPage() {
   return (
     <main id="top">
-      <section className="grand-hero">
+      <section className="grand-hero pecado-hero">
         <img className="vine vine-left" src="/img/flowers-left.webp" alt="" />
         <img className="vine vine-right" src="/img/flowers-right.webp" alt="" />
         <div className="hero-shell split-reveal expanded reveal">

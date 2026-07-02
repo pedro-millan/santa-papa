@@ -42,6 +42,7 @@ export function useSantaPapa() {
   useEffect(() => {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
     const fine   = matchMedia('(pointer:fine)').matches
+    const isMobile = matchMedia('(max-width:980px)').matches
 
     // Page identity (data-page/--accent/.product-page). Antes vivía en un
     // <Script id="pd"> por página, pero next/script deduplica por id en toda
@@ -128,6 +129,31 @@ export function useSantaPapa() {
     }
     navToggle?.addEventListener('click', onNavToggle)
 
+    // Mobile submenu toggle (El Pecado)
+    const dropToggle = document.querySelector<HTMLButtonElement>('.nav-drop-toggle')
+    const onDropToggle = () => {
+      const drop = dropToggle?.closest('.nav-drop')
+      const open = drop?.classList.toggle('open')
+      dropToggle?.setAttribute('aria-expanded', String(!!open))
+    }
+    dropToggle?.addEventListener('click', onDropToggle)
+
+    // Cerrar el menú móvil y el dropdown "El Pecado" al clicar fuera
+    const mainNav = document.querySelector('.main-nav')
+    const onOutsideClick = (e: MouseEvent) => {
+      const target = e.target as Node
+      if (document.body.classList.contains('nav-open') && !mainNav?.contains(target) && !navToggle?.contains(target)) {
+        document.body.classList.remove('nav-open')
+        navToggle?.setAttribute('aria-expanded', 'false')
+      }
+      const openDrop = dropToggle?.closest('.nav-drop')
+      if (openDrop?.classList.contains('open') && !openDrop.contains(target)) {
+        openDrop.classList.remove('open')
+        dropToggle?.setAttribute('aria-expanded', 'false')
+      }
+    }
+    document.addEventListener('click', onOutsideClick)
+
     // ── GSAP: cursor + scroll reveals + split-hero ─────────────────────
     let gsapCleanup: (() => void) | undefined
 
@@ -177,10 +203,15 @@ export function useSantaPapa() {
           // Reset estado previo por si venimos de otra página
           gsap.set(el, { opacity: 0, y: 36 })
           el.classList.remove('in-view')
+          // ponytail: en móvil, las 3 bolsas de producto solo deben aparecer
+          // al llegar a la mitad del viewport (y desaparecer de nuevo al
+          // subir), no quedarse reveladas para siempre como el resto
+          const isMobileBagCard = isMobile && el.classList.contains('home-bag-card')
+          const start = isMobileBagCard ? 'top 50%' : 'top 92%'
           triggers.push(ScrollTrigger.create({
             trigger: el,
-            start: 'top 92%',
-            once: true,
+            start,
+            once: !isMobileBagCard,
             onEnter: () => gsap.to(el, {
               opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
               onComplete: () => {
@@ -190,6 +221,12 @@ export function useSantaPapa() {
                 if (el.hasAttribute('data-scroll-fade')) gsap.set(el, { clearProps: 'opacity' })
               },
             }),
+            ...(isMobileBagCard ? {
+              onLeaveBack: () => {
+                el.classList.remove('in-view')
+                gsap.to(el, { opacity: 0, y: 36, duration: 0.5, ease: 'power2.out' })
+              },
+            } : {}),
           }))
         })
       } else {
@@ -403,6 +440,8 @@ export function useSantaPapa() {
       smoothCleanups.forEach(fn => fn())
       gsapCleanup?.()
       navToggle?.removeEventListener('click', onNavToggle)
+      dropToggle?.removeEventListener('click', onDropToggle)
+      document.removeEventListener('click', onOutsideClick)
       if (fixedMediaEls.length) window.removeEventListener('resize', syncFixedMedia)
       if (magnetRaf!) cancelAnimationFrame(magnetRaf)
       carouselRafs.forEach(r => cancelAnimationFrame(r))
@@ -412,6 +451,8 @@ export function useSantaPapa() {
       form?.removeEventListener('submit', onSubmit)
       // Limpiar clases de estado del body entre páginas
       document.body.classList.remove('hero-scroll-locked', 'nav-open', 'loaded')
+      dropToggle?.closest('.nav-drop')?.classList.remove('open')
+      dropToggle?.setAttribute('aria-expanded', 'false')
     }
   }, [pathname]) // ← re-ejecuta en cada cambio de ruta
 }

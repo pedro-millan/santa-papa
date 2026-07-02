@@ -4,14 +4,14 @@ export const metadata: Metadata = { title: 'Alcachofa · Limón & Pimienta · Sa
 export default function AlcachofaPage() {
   return (
   <main id="top">
-    <section className="grand-hero product-top">
+    <section className="grand-hero product-top alcachofa-hero">
       <img className="vine vine-left" src="/img/flowers-left.webp" alt="" /><img className="vine vine-right" src="/img/flowers-right.webp" alt="" />
       <div className="hero-shell split-reveal expanded reveal">
         <img className="full-relic" src="/img/Alcachofa 2.webp" alt="Chips de alcachofa flotando" />
         <div className="hero-overlay"></div>
         <div className="scroll-cue" aria-hidden="true"><span /></div>
       </div>
-      <h1>El jardín de las delicias.</h1>
+      <h1 className="reveal">El jardín de las delicias.</h1>
     </section>
     <section className="moving-bag section-pad">
       <img className="halo-bg" src="/img/halo.webp" alt="" />

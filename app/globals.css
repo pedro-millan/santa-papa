@@ -29,28 +29,17 @@
 @font-face { font-family:'Caudex'; src:url('/fonts/Caudex/Caudex-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
 @font-face { font-family:'Caudex'; src:url('/fonts/Caudex/Caudex-BoldItalic.ttf') format('truetype'); font-weight:700; font-style:italic; font-display:swap; }
 
-/* ─── CSS original íntegro (sin modificar) ────────────────────────────── */
-
-/* Santa Papa — v2 experimental static prototype */
-@font-face{font-family:'Gothicon';src:url('/fonts/Gothicon-Base.ttf') format('truetype');font-display:swap;}
-@font-face{font-family:'Caudex';src:url('/fonts/Caudex/Caudex-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Caudex';src:url('/fonts/Caudex/Caudex-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}
-@font-face{font-family:'Caudex';src:url('/fonts/Caudex/Caudex-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'Caudex';src:url('/fonts/Caudex/Caudex-BoldItalic.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap;}
 :root{
   --black:#030303;--gold:#c58641;--olive:#666632;--red:#932f1a;--lime:#d6ccb0;--bone:#f4efe3;--ink:#0b0b08;
   --accent:#c58641;--serif:'Gothicon','Cinzel','Georgia',serif;--sans:'Caudex',Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --ease:cubic-bezier(.8,0,.2,1);--slow:cubic-bezier(.16,1,.3,1);--pad:clamp(20px,5vw,86px);
 }
 h1{font-family:var(--serif);color:rgba(197,134,65,.82);}
-*{box-sizing:border-box;border-radius:0!important}html{scroll-behavior:smooth;background:var(--black)}body{margin:0;font-family:var(--sans);background:var(--black);color:rgba(197,134,65,.55);overflow-x:hidden;cursor:none}body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% -10%,color-mix(in srgb,var(--accent),transparent 62%),transparent 34%),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(180deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:auto,78px 78px,78px 78px;pointer-events:none;z-index:-2}body::after{content:"";position:fixed;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent),transparent 84%),transparent 28%);opacity:.78;pointer-events:none;z-index:-1}img,video{max-width:100%;display:block}a{color:inherit;text-decoration:none;cursor:none}button,input,textarea,select{font:inherit}::selection{background:var(--accent);color:#fff}.cursor{position:fixed;left:0;top:0;width:46px;height:46px;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .55s var(--slow),height .55s var(--slow),opacity .3s,filter .3s;opacity:.96;mix-blend-mode:normal}.cursor-potato{position:absolute;inset:0;background:url('/img/cursor-papa.webp') center/contain no-repeat;filter:drop-shadow(0 0 12px rgba(197,134,65,.45));transition:opacity .28s,transform .45s var(--slow)}.cursor-eye{position:absolute;left:50%;top:50%;width:96px;height:96px;opacity:0;transform:translate(-50%,-50%) scale(.72);transition:opacity .25s,transform .45s var(--slow)}.cursor-eye::before{content:"";position:absolute;inset:0;background:url('/img/OJO RATON_SANTA PAPA.png') center/contain no-repeat;filter:drop-shadow(0 0 14px rgba(197,134,65,.6));transform-origin:center;animation:eyeBlinkDot 3.4s ease-in-out infinite}.cursor.is-active{width:96px;height:96px;opacity:.44}.cursor.is-active .cursor-potato{transform:rotate(15deg) scale(1.08)}.cursor.is-eye{width:136px;height:136px;opacity:1}.cursor.is-eye .cursor-potato{opacity:0;transform:scale(.5)}.cursor.is-eye .cursor-eye{opacity:1;transform:translate(-50%,-50%) scale(1)}@keyframes eyeBlinkDot{0%,88%,100%{transform:scaleY(1)}93%{transform:scaleY(.06)}96%{transform:scaleY(1)}}#preloader{position:fixed;z-index:10000;inset:0;background:#030303;display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}.loaded #preloader{opacity:0;visibility:hidden}.loader-mark{text-align:center;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-size:11px}.loader-mark img{width:180px;margin:auto auto 22px;mix-blend-mode:lighten}.site-header{position:fixed;z-index:1000;top:0;left:0;width:100%;height:150px;padding:16px clamp(16px,4vw,50px);display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference;color:#fff;pointer-events:none}.brand,.main-nav,.nav-toggle{pointer-events:auto}.brand img{width:130px;height:130px;object-fit:contain}.main-nav{display:flex;align-items:center;align-self:flex-start;margin-top:18px;gap:clamp(14px,2.1vw,34px);font-size:13px;letter-spacing:.08em;text-transform:uppercase}.main-nav a{position:relative;padding:12px 0;opacity:.9}.main-nav a::after{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}.main-nav a:hover::after,.main-nav a.is-active::after{transform:scaleX(1);transform-origin:left}.nav-drop{position:relative;padding-bottom:14px;margin-bottom:-14px}.drop-panel{position:absolute;top:100%;left:-22px;min-width:330px;padding:18px;background:#030303;border:1px solid rgba(197,134,65,.72);display:grid;gap:0;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .9s var(--ease),transform .9s var(--ease);mix-blend-mode:normal;box-shadow:0 30px 80px rgba(0,0,0,.5)}.nav-drop:hover .drop-panel,.nav-drop.open .drop-panel{opacity:1;transform:translateY(0);pointer-events:auto}.drop-panel a{padding:15px 12px;border-bottom:1px solid rgba(197,134,65,.23);color:rgba(197,134,65,.55)}.drop-panel a:last-child{border-bottom:0}.drop-panel small{color:var(--gold);margin-right:8px}.nav-toggle{display:none;background:transparent;border:0;width:42px;height:42px}.nav-toggle span{display:block;height:1px;background:#fff;margin:8px 0}.grand-hero{min-height:100svh;padding:112px clamp(10px,2vw,28px) 58px;display:grid;place-items:center;position:relative;overflow:hidden}.hero-shell{width:min(95vw,1780px);height:clamp(560px,81svh,900px);position:relative;border:1px solid rgba(197,134,65,.38);overflow:hidden;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--accent),transparent 72%),rgba(3,3,3,.98) 58%);box-shadow:0 42px 120px rgba(0,0,0,.54);isolation:isolate}.hero-shell::before,.hero-shell::after{content:"";position:absolute;top:0;bottom:0;width:clamp(80px,14vw,220px);z-index:4;opacity:.42;pointer-events:none;background:url('/img/flowers-left.webp') center/contain repeat-y}.hero-shell::before{left:0}.hero-shell::after{right:0;background-image:url('/img/flowers-right.webp')}.vine{position:absolute;height:92vh;width:auto;opacity:.12;filter:drop-shadow(0 0 34px color-mix(in srgb,var(--accent),transparent 48%));pointer-events:none;transition:opacity .8s var(--ease)}.vine-left{left:-105px;top:6vh}.vine-right{right:-105px;top:6vh}.slice-stage{position:absolute;inset:0;display:grid;grid-template-columns:repeat(9,1fr);gap:clamp(18px,2.2vw,48px);padding:clamp(18px,2.6vw,42px);z-index:2;transition:opacity .55s var(--ease),transform .8s var(--slow)}.slice{overflow:hidden;background:#050505;border-inline:1px solid rgba(197,134,65,.18);transform:translateY(calc((var(--i) - 4) * 3.6vh)) scaleY(.96);transition:transform 1s var(--slow),opacity .8s var(--ease)}.slice:nth-child(even){transform:translateY(calc((4 - var(--i)) * 4.4vh)) scaleY(.86)}.slice img{height:100%;width:900%;max-width:none;object-fit:cover;transform:translateX(calc(var(--i) * -11.111%));filter:saturate(1.05) contrast(1.08);opacity:.98}.full-relic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .78s var(--ease),transform 1.1s var(--slow);z-index:1}.split-reveal.expanded .slice-stage{opacity:0;transform:scale(1.05)}.split-reveal.expanded .full-relic{opacity:1;transform:scale(1)}.hero-overlay{position:absolute;inset:0;z-index:5;display:grid;place-items:center;text-align:center;padding:clamp(20px,7vw,120px);background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.44));opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .85s var(--ease) .16s,transform .85s var(--slow) .16s}.split-reveal.expanded .hero-overlay{opacity:1;transform:translateY(0)}.hero-overlay>span,.eyebrow,.section-kicker{display:inline-flex;gap:10px;align-items:center;justify-content:center;text-transform:uppercase;letter-spacing:.24em;color:var(--accent);font-size:12px;margin-bottom:26px}.hero-overlay>span::before,.eyebrow::before,.section-kicker::before{content:"✦";font-size:13px}.hero-overlay h1{font-weight:400;line-height:.78;letter-spacing:-.045em;font-size:clamp(64px,12vw,210px);margin:0 auto 28px;text-shadow:0 10px 50px rgba(0,0,0,.65);max-width:1300px}.product-top .hero-overlay h1{font-size:clamp(54px,9.4vw,160px)}.hero-overlay p{font-size:clamp(17px,1.6vw,25px);line-height:1.5;color:rgba(197,134,65,.68);max-width:760px;margin:clamp(28px,6vw,64px) auto 0;text-shadow:0 6px 26px rgba(0,0,0,.8)}.open-sigil{position:absolute;left:50%;bottom:0;z-index:8;transform:translateX(-50%);display:grid;place-items:center;gap:8px;text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:var(--gold);transition:opacity .45s}.open-sigil img{width:92px;animation:slowSpin 15s linear infinite;filter:drop-shadow(0 0 18px rgba(197,134,65,.55))}.split-reveal.expanded .open-sigil{opacity:0}@keyframes slowSpin{to{transform:rotate(360deg)}}.section-pad{padding:clamp(72px,11vw,158px) var(--pad);position:relative}.section-title,.manifest h2,.intro-manifest p{font-weight:400;line-height:.88;letter-spacing:-.035em}.section-title{font-size:clamp(48px,7.8vw,126px);max-width:1220px;margin:0 0 54px}.halo-bg{position:absolute;z-index:-1;left:50%;top:42%;width:min(54vw,720px);opacity:.08;transform:translate(-50%,-50%);filter:drop-shadow(0 0 70px color-mix(in srgb,var(--accent),transparent 55%))}.intro-manifest{min-height:62vh;display:grid;place-items:center;text-align:center;overflow:hidden}.intro-manifest p{font-size:clamp(38px,7vw,112px);max-width:1320px;margin:0 auto 42px}.intro-manifest strong{color:var(--accent);font-weight:400}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,var(--accent),#fff 12%);min-height:50px;padding:0 24px;text-transform:uppercase;letter-spacing:.1em;font-size:12px;transition:transform .45s var(--slow),background .45s var(--ease),color .45s var(--ease),border .45s}.btn:hover{transform:translateY(-4px)}.btn.primary{background:var(--accent);color:#050505}.btn.ghost{background:rgba(255,255,255,.04);color:rgba(197,134,65,.55)}.altar-sanctum{overflow:hidden}.altar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,30px)}.altar-card{min-height:650px;padding:34px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.025));position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .55s var(--slow),border-color .5s,background .5s}.altar-card::before{content:"";position:absolute;inset:auto 8% 22% 8%;height:44%;background:radial-gradient(circle,color-mix(in srgb,var(--tone),transparent 28%),transparent 65%);filter:blur(20px);opacity:.65}.altar-card::after{content:"";position:absolute;inset:0;background:url('/img/halo.webp') center 12%/170px no-repeat;opacity:.11;mix-blend-mode:screen}.altar-card:hover{transform:translateY(-12px);border-color:color-mix(in srgb,var(--tone),#fff 18%);background:linear-gradient(180deg,color-mix(in srgb,var(--tone),transparent 84%),rgba(255,255,255,.025))}.altar-card>img{position:absolute;top:11%;left:50%;width:min(76%,350px);height:60%;object-fit:contain;transform:translateX(-50%) rotate(-2deg);transition:transform .7s var(--slow);z-index:2}.altar-card:hover>img{transform:translateX(-50%) scale(1.06) rotate(2deg)}.altar-card .number{position:absolute;top:24px;left:28px;color:var(--tone);font-size:52px;z-index:3}.altar-card h3{font-size:clamp(42px,5vw,76px);line-height:.84;margin:0 0 14px;z-index:3}.altar-card p{color:rgba(197,134,65,.58);line-height:1.5;z-index:3}.cinema-band{min-height:86vh;position:relative;display:grid;place-items:center;overflow:hidden;border-block:1px solid rgba(255,255,255,.12)}.cinema-band video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.46;filter:saturate(.9) contrast(1.1)}.cinema-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,3,.85),rgba(3,3,3,.35),rgba(3,3,3,.85))}.cinema-copy{position:relative;z-index:2;text-align:center;max-width:1000px;padding:40px}.cinema-copy span,.manifest span,.wide-image span,.fade-slide span,.parallax-card span,.ceremony-video span,.fixed-altar span{color:var(--accent);letter-spacing:.24em;text-transform:uppercase;font-size:12px}.cinema-copy h2{font-weight:400;font-size:clamp(48px,7vw,110px);line-height:.9;margin:18px 0 0}.procession-fade{overflow:hidden}.section-vine{position:absolute;top:8%;height:84%;max-height:960px;opacity:.13;pointer-events:none}.section-vine-left{left:-80px}.section-vine-right{right:-80px}.fade-carousel{position:relative;height:min(78vh,820px);min-height:560px;border:1px solid rgba(197,134,65,.32);background:#050505;overflow:hidden}.fade-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.25s var(--ease),transform 1.25s var(--slow);transform:scale(1.025);pointer-events:none}.fade-slide.active{opacity:1;transform:scale(1);pointer-events:auto}.fade-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.06) saturate(.95);opacity:.82}.fade-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,3,.86),rgba(3,3,3,.12),rgba(3,3,3,.66))}.fade-slide div{position:absolute;z-index:2;left:clamp(24px,7vw,120px);bottom:clamp(24px,7vw,110px);max-width:640px}.fade-slide h3{font-weight:400;font-size:clamp(54px,8vw,118px);line-height:.82;margin:10px 0 18px}.fade-slide p{font-size:clamp(16px,1.4vw,22px);line-height:1.5;color:rgba(197,134,65,.64)}.carousel-btn{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:58px;height:80px;border:1px solid rgba(197,134,65,.45);background:rgba(3,3,3,.62);color:var(--gold);font-size:48px;line-height:1;cursor:none}.carousel-btn.prev{left:18px}.carousel-btn.next{right:18px}.carousel-dots{position:absolute;z-index:5;left:50%;bottom:24px;transform:translateX(-50%);display:flex;gap:10px}.carousel-dots button{width:30px;height:2px;border:0;background:rgba(197,134,65,.32);padding:0;cursor:none}.carousel-dots button.active{background:var(--gold)}.image-liturgy{display:grid;gap:clamp(70px,10vw,150px)}.parallax-card{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(280px,.9fr);gap:clamp(30px,6vw,100px);align-items:center}.parallax-card.reverse{grid-template-columns:minmax(280px,.9fr) minmax(260px,.8fr)}.parallax-card.reverse img,.parallax-card.reverse .fixed-media{order:2}.parallax-card img{width:100%;height:clamp(460px,72vh,860px);object-fit:cover;border:1px solid rgba(255,255,255,.12);transform:translateY(var(--par,0px))}.parallax-card h3{font-weight:400;font-size:clamp(48px,7vw,110px);line-height:.86;margin:14px 0 22px}.parallax-card p{font-size:clamp(16px,1.4vw,22px);line-height:1.55;color:rgba(197,134,65,.6)}.manifest{min-height:74vh;display:grid;align-content:center;text-align:center;justify-items:center;overflow:hidden}.manifest h2{font-size:clamp(48px,8vw,132px);max-width:1280px;margin:18px auto 42px}.sin-map{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.sin-map article{border:1px solid rgba(255,255,255,.12);padding:30px;background:rgba(255,255,255,.04)}.sin-map img{height:240px;width:100%;object-fit:contain;margin-bottom:24px}.sin-map h3{font-weight:400;font-size:clamp(34px,4vw,62px);line-height:.9;margin:0 0 16px}.sin-map p{color:rgba(197,134,65,.58);line-height:1.5}.ceremony-video{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,100px);align-items:center}.ceremony-video video{height:78vh;width:100%;object-fit:cover;border:1px solid rgba(197,134,65,.35)}.ceremony-video h2{font-weight:400;font-size:clamp(56px,7vw,120px);line-height:.84;margin:14px 0 22px}.ceremony-video p{font-size:20px;line-height:1.55;color:rgba(197,134,65,.58)}.steps{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(197,134,65,.05),rgba(255,255,255,.02))}.step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step-grid article{min-height:310px;border:1px solid rgba(255,255,255,.12);padding:28px;background:rgba(3,3,3,.42);display:flex;flex-direction:column;justify-content:space-between}.step-grid span,.timeline span,.tasting span{color:var(--accent);letter-spacing:.2em;text-transform:uppercase;font-size:12px}.step-grid h3,.timeline h3{font-weight:400;font-size:clamp(32px,3.8vw,58px);line-height:.9;margin:30px 0 0}.step-grid p{color:rgba(197,134,65,.58);line-height:1.5}.fixed-craft{min-height:94vh;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,7vw,120px);align-items:center}.fixed-media{min-height:78vh;background-size:contain;background-repeat:no-repeat;background-position-y:center;background-attachment:fixed;border:1px solid rgba(197,134,65,.25)}.craft-copy p{font-size:20px;line-height:1.6;color:rgba(197,134,65,.6);max-width:700px}.use-cases,.product-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.use-cases article,.product-gallery article{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12);min-height:520px;background:#050505}.use-cases img,.product-gallery img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--slow)}.use-cases article:hover img,.product-gallery article:hover img{transform:scale(1.05)}.use-cases h3{position:absolute;left:22px;bottom:22px;right:22px;font-size:clamp(34px,4vw,62px);line-height:.88;margin:0;text-shadow:0 10px 30px #000}.origin{overflow:hidden}.origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin-left:auto}.origin-grid p{font-size:clamp(20px,2vw,32px);line-height:1.35;color:rgba(197,134,65,.62)}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.timeline article{border-top:1px solid rgba(197,134,65,.45);padding-top:26px;min-height:260px}.wide-image{height:92vh;position:relative;overflow:hidden;display:grid;place-items:center;text-align:center}.wide-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.04);opacity:.72}.wide-image::after{content:"";position:absolute;inset:0;background:rgba(3,3,3,.45)}.wide-image div{position:relative;z-index:2;max-width:980px;padding:30px}.wide-image h2{font-weight:400;font-size:clamp(56px,8vw,140px);line-height:.85;margin:18px 0 0}.contact-section{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,7vw,100px);align-items:start}.contact-copy p{font-size:20px;line-height:1.6;color:rgba(197,134,65,.58)}.contact-form{border:1px solid rgba(197,134,65,.35);padding:clamp(24px,4vw,54px);background:rgba(255,255,255,.035);display:grid;gap:20px}.contact-form label{display:grid;gap:10px;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--gold)}.contact-form input,.contact-form textarea,.contact-form select{width:100%;border:1px solid rgba(255,255,255,.18);background:#050505;color:rgba(197,134,65,.55);padding:16px;outline:none}.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--accent)}.form-status{min-height:24px;color:var(--gold);margin:0}.fixed-altar{height:82vh;background-size:cover;background-position:center;background-attachment:fixed;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden}.fixed-altar::after{content:"";position:absolute;inset:0;background:rgba(3,3,3,.48)}.fixed-altar div{position:relative;z-index:2;max-width:980px;padding:30px}.fixed-altar h2{font-weight:400;font-size:clamp(56px,8vw,130px);line-height:.84;margin:16px 0 0}.moving-bag{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,7vw,110px);align-items:center;overflow:hidden}.bag-copy p{font-size:20px;line-height:1.55;color:rgba(197,134,65,.58);max-width:680px}.bag-copy ul{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;gap:12px}.bag-copy li{border:1px solid rgba(197,134,65,.38);padding:12px 16px;text-transform:uppercase;letter-spacing:.12em;font-size:12px}.bag-stage{height:80vh;min-height:600px;position:relative;display:grid;place-items:center;perspective:900px}.bag-stage::before{content:"";position:absolute;inset:8% 12%;background:url('/img/halo.webp') center/contain no-repeat;opacity:.12;filter:drop-shadow(0 0 70px color-mix(in srgb,var(--accent),transparent 35%))}.bag-stage img:first-child{position:relative;z-index:2;width:min(54vw,520px);height:82%;object-fit:contain;filter:drop-shadow(0 42px 58px rgba(0,0,0,.55));transform:translate3d(calc(var(--tilt-x,0)*1px),calc(var(--tilt-y,0)*1px),0) rotateY(calc(var(--tilt-x,0)*.025deg)) rotateX(calc(var(--tilt-y,0)*-.025deg));transition:transform .18s linear}.bag-design{position:absolute;right:0;bottom:0;width:min(38vw,360px);opacity:.16;mix-blend-mode:screen;filter:grayscale(.3)}.product-reveal-section .grand-hero{min-height:auto;padding:0}.product-reveal-section .hero-shell{height:72vh;width:100%}.inside-split .hero-overlay h1{font-size:clamp(48px,7vw,110px)}.tasting{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.tasting article{border:1px solid rgba(255,255,255,.12);padding:28px;min-height:260px;background:rgba(255,255,255,.035)}.tasting p{font-size:clamp(18px,1.8vw,28px);line-height:1.35;margin:30px 0 0}.product-gallery{grid-template-columns:repeat(4,1fr)}.product-gallery article{min-height:520px}.site-footer{padding:70px var(--pad);display:flex;justify-content:space-between;gap:40px;border-top:1px solid rgba(255,255,255,.12);background:#030303}.footer-logo{width:130px;margin-bottom:18px}.site-footer p{max-width:430px;color:rgba(197,134,65,.48);line-height:1.5}.site-footer nav{display:flex;gap:20px;flex-wrap:wrap;align-content:flex-start;text-transform:uppercase;letter-spacing:.1em;font-size:12px}.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--slow)}.reveal.in-view{opacity:1;transform:translateY(0)}
-@media(max-width:980px){body{cursor:auto}.cursor{display:none}.site-header{height:auto;mix-blend-mode:normal;background:rgba(3,3,3,.88);border-bottom:1px solid rgba(197,134,65,.24);padding:12px 18px}.brand img{width:100px;height:100px}.nav-toggle{display:block}.main-nav{position:fixed;inset:86px 0 auto 0;background:#030303;border-bottom:1px solid rgba(197,134,65,.32);padding:24px;display:grid;gap:8px;transform:translateY(-130%);transition:transform .6s var(--ease)}.nav-open .main-nav{transform:translateY(0)}.drop-panel{position:static;opacity:1;transform:none;pointer-events:auto;min-width:0;margin-top:8px}.grand-hero{padding-top:104px}.hero-shell{height:72svh;width:94vw}.slice-stage{gap:13px;grid-template-columns:repeat(7,1fr)}.slice:nth-child(n+8){display:none}.slice img{width:700%;transform:translateX(calc(var(--i) * -14.285%))}.hero-overlay h1{font-size:clamp(48px,16vw,98px)}.altar-grid,.sin-map,.step-grid,.use-cases,.product-gallery,.timeline,.tasting{grid-template-columns:1fr}.altar-card{min-height:520px}.ceremony-video,.fixed-craft,.moving-bag,.contact-section,.origin-grid,.parallax-card,.parallax-card.reverse{grid-template-columns:1fr}.parallax-card.reverse img,.parallax-card.reverse .fixed-media{order:0}.fixed-media,.fixed-altar{background-attachment:scroll}.fade-carousel{height:68vh;min-height:520px}.carousel-btn{display:none}.product-gallery article,.use-cases article{min-height:440px}.site-footer{display:grid}.product-reveal-section .hero-shell{height:64vh}.bag-stage{height:64vh;min-height:480px}.bag-stage img:first-child{width:min(82vw,440px)}}
+*{box-sizing:border-box;border-radius:0!important}html{scroll-behavior:smooth;background:var(--black)}body{margin:0;font-family:var(--sans);background:var(--black);color:rgba(197,134,65,.55);overflow-x:hidden;cursor:none}body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% -10%,color-mix(in srgb,var(--accent),transparent 62%),transparent 34%),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(180deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:auto,78px 78px,78px 78px;pointer-events:none;z-index:-2}body::after{content:"";position:fixed;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent),transparent 84%),transparent 28%);opacity:.78;pointer-events:none;z-index:-1}img,video{max-width:100%;display:block}a{color:inherit;text-decoration:none;cursor:none}button,input,textarea,select{font:inherit}::selection{background:var(--accent);color:#fff}.cursor{position:fixed;left:0;top:0;width:46px;height:46px;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .55s var(--slow),height .55s var(--slow),opacity .3s,filter .3s;opacity:.96;mix-blend-mode:normal}.cursor-potato{position:absolute;inset:0;background:url('/img/cursor-papa.webp') center/contain no-repeat;filter:drop-shadow(0 0 12px rgba(197,134,65,.45));transition:opacity .28s,transform .45s var(--slow)}.cursor-eye{position:absolute;left:50%;top:50%;width:96px;height:96px;opacity:0;transform:translate(-50%,-50%) scale(.72);transition:opacity .25s,transform .45s var(--slow)}.cursor-eye::before{content:"";position:absolute;inset:0;background:url('/img/OJO RATON_SANTA PAPA.png') center/contain no-repeat;filter:drop-shadow(0 0 14px rgba(197,134,65,.6));transform-origin:center;animation:eyeBlinkDot 3.4s ease-in-out infinite}.cursor.is-active{width:96px;height:96px;opacity:.44}.cursor.is-active .cursor-potato{transform:rotate(15deg) scale(1.08)}.cursor.is-eye{width:136px;height:136px;opacity:1}.cursor.is-eye .cursor-potato{opacity:0;transform:scale(.5)}.cursor.is-eye .cursor-eye{opacity:1;transform:translate(-50%,-50%) scale(1)}@keyframes eyeBlinkDot{0%,88%,100%{transform:scaleY(1)}93%{transform:scaleY(.06)}96%{transform:scaleY(1)}}#preloader{position:fixed;z-index:10000;inset:0;background:#030303;display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}.loaded #preloader{opacity:0;visibility:hidden}.loader-mark{text-align:center;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-size:11px}.loader-mark img{width:180px;margin:auto auto 22px;mix-blend-mode:lighten}.site-header{position:fixed;z-index:1000;top:0;left:0;width:100%;height:150px;padding:16px clamp(16px,4vw,50px);display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference;color:#fff;pointer-events:none}.brand,.main-nav,.nav-toggle{pointer-events:auto}.brand img{width:130px;height:130px;object-fit:contain}.main-nav{display:flex;align-items:center;align-self:flex-start;margin-top:18px;gap:clamp(14px,2.1vw,34px);font-size:13px;letter-spacing:.08em;text-transform:uppercase}.main-nav a{position:relative;padding:12px 0;opacity:.9}.main-nav a::after{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease)}.main-nav a:hover::after,.main-nav a.is-active::after{transform:scaleX(1);transform-origin:left}.nav-drop{position:relative;padding-bottom:14px;margin-bottom:-14px}.drop-panel{position:absolute;top:100%;left:-22px;min-width:330px;padding:18px;background:#030303;border:1px solid rgba(197,134,65,.72);display:grid;gap:0;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .9s var(--ease),transform .9s var(--ease);mix-blend-mode:normal;box-shadow:0 30px 80px rgba(0,0,0,.5)}.nav-drop:hover .drop-panel,.nav-drop.open .drop-panel{opacity:1;transform:translateY(0);pointer-events:auto}.drop-panel a{padding:15px 12px;border-bottom:1px solid rgba(197,134,65,.23);color:rgba(197,134,65,.55)}.drop-panel a:last-child{border-bottom:0}.drop-panel small{color:var(--gold);margin-right:8px}.nav-toggle{display:none;background:transparent;border:0;width:42px;height:42px}.nav-toggle span{display:block;height:1px;background:#fff;margin:8px 0}.grand-hero{min-height:100svh;padding:112px clamp(10px,2vw,28px) 58px;display:grid;place-items:center;position:relative;overflow:hidden}.hero-shell{width:min(95vw,1780px);height:clamp(560px,81svh,900px);position:relative;border:1px solid rgba(197,134,65,.38);overflow:hidden;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--accent),transparent 72%),rgba(3,3,3,.98) 58%);box-shadow:0 42px 120px rgba(0,0,0,.54);isolation:isolate}.hero-shell::before,.hero-shell::after{content:"";position:absolute;top:0;bottom:0;width:clamp(80px,14vw,220px);z-index:4;opacity:.42;pointer-events:none;background:url('/img/flowers-left.webp') center/contain repeat-y}.hero-shell::before{left:0}.hero-shell::after{right:0;background-image:url('/img/flowers-right.webp')}.vine{position:absolute;height:92vh;width:auto;opacity:.12;filter:drop-shadow(0 0 34px color-mix(in srgb,var(--accent),transparent 48%));pointer-events:none;transition:opacity .8s var(--ease)}.vine-left{left:-105px;top:6vh}.vine-right{right:-105px;top:6vh}.slice-stage{position:absolute;inset:0;display:grid;grid-template-columns:repeat(9,1fr);gap:clamp(18px,2.2vw,48px);padding:clamp(18px,2.6vw,42px);z-index:2;transition:opacity .55s var(--ease),transform .8s var(--slow)}.slice{overflow:hidden;background:#050505;border-inline:1px solid rgba(197,134,65,.18);transform:translateY(calc((var(--i) - 4) * 3.6vh)) scaleY(.96);transition:transform 1s var(--slow),opacity .8s var(--ease)}.slice:nth-child(even){transform:translateY(calc((4 - var(--i)) * 4.4vh)) scaleY(.86)}.slice img{height:100%;width:900%;max-width:none;object-fit:cover;transform:translateX(calc(var(--i) * -11.111%));filter:saturate(1.05) contrast(1.08);opacity:.98}.full-relic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .78s var(--ease),transform 1.1s var(--slow);z-index:1}.split-reveal.expanded .slice-stage{opacity:0;transform:scale(1.05)}.split-reveal.expanded .full-relic{opacity:1;transform:scale(1)}.hero-overlay{position:absolute;inset:0;z-index:5;display:grid;place-items:center;text-align:center;padding:clamp(20px,7vw,120px);background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.44));opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .85s var(--ease) .16s,transform .85s var(--slow) .16s}.split-reveal.expanded .hero-overlay{opacity:1;transform:translateY(0)}.hero-overlay>span,.eyebrow,.section-kicker{display:inline-flex;gap:10px;align-items:center;justify-content:center;text-transform:uppercase;letter-spacing:.24em;color:var(--accent);font-size:12px;margin-bottom:26px}.hero-overlay>span::before,.eyebrow::before,.section-kicker::before{content:"✦";font-size:13px}.hero-overlay h1{font-weight:400;line-height:.78;letter-spacing:-.045em;font-size:clamp(64px,12vw,210px);margin:0 auto 28px;text-shadow:0 10px 50px rgba(0,0,0,.65);max-width:1300px}.product-top .hero-overlay h1{font-size:clamp(54px,9.4vw,160px)}.hero-overlay p{font-size:clamp(17px,1.6vw,25px);line-height:1.5;color:rgba(197,134,65,.68);max-width:760px;margin:clamp(28px,6vw,64px) auto 0;text-shadow:0 6px 26px rgba(0,0,0,.8)}.open-sigil{position:absolute;left:50%;bottom:0;z-index:8;transform:translateX(-50%);display:grid;place-items:center;gap:8px;text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:var(--gold);transition:opacity .45s,transform .45s var(--slow)}.open-sigil img{width:92px;animation:slowSpin 15s linear infinite;filter:drop-shadow(0 0 18px rgba(197,134,65,.55))}.split-reveal.expanded .open-sigil{opacity:0}@keyframes slowSpin{to{transform:rotate(360deg)}}.section-pad{padding:clamp(72px,11vw,158px) var(--pad);position:relative}.section-title,.manifest h2,.intro-manifest p{font-weight:400;line-height:.88;letter-spacing:-.035em}.section-title{font-size:clamp(48px,7.8vw,126px);max-width:1220px;margin:0 0 54px}.halo-bg{position:absolute;z-index:-1;left:50%;top:42%;width:min(54vw,720px);opacity:.08;transform:translate(-50%,-50%);filter:drop-shadow(0 0 70px color-mix(in srgb,var(--accent),transparent 55%))}.intro-manifest{min-height:62vh;display:grid;place-items:center;text-align:center;overflow:hidden}.intro-manifest p{font-size:clamp(38px,7vw,112px);max-width:1320px;margin:0 auto 42px}.intro-manifest strong{color:var(--accent);font-weight:400}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,var(--accent),#fff 12%);min-height:50px;padding:0 24px;text-transform:uppercase;letter-spacing:.1em;font-size:12px;transition:transform .45s var(--slow),background .45s var(--ease),color .45s var(--ease),border .45s}.btn:hover{transform:translateY(-4px)}.btn.primary{background:var(--accent);color:#050505}.btn.ghost{background:rgba(255,255,255,.04);color:rgba(197,134,65,.55)}.altar-sanctum{overflow:hidden}.altar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,30px)}.altar-card{min-height:650px;padding:34px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.025));position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .55s var(--slow),border-color .5s,background .5s}.altar-card::before{content:"";position:absolute;inset:auto 8% 22% 8%;height:44%;background:radial-gradient(circle,color-mix(in srgb,var(--tone),transparent 28%),transparent 65%);filter:blur(20px);opacity:.65}.altar-card::after{content:"";position:absolute;inset:0;background:url('/img/halo.webp') center 12%/170px no-repeat;opacity:.11;mix-blend-mode:screen}.altar-card:hover{transform:translateY(-12px);border-color:color-mix(in srgb,var(--tone),#fff 18%);background:linear-gradient(180deg,color-mix(in srgb,var(--tone),transparent 84%),rgba(255,255,255,.025))}.altar-card>img{position:absolute;top:11%;left:50%;width:min(76%,350px);height:60%;object-fit:contain;transform:translateX(-50%) rotate(-2deg);transition:transform .7s var(--slow);z-index:2}.altar-card:hover>img{transform:translateX(-50%) scale(1.06) rotate(2deg)}.altar-card .number{position:absolute;top:24px;left:28px;color:var(--tone);font-size:52px;z-index:3}.altar-card h3{font-size:clamp(42px,5vw,76px);line-height:.84;margin:0 0 14px;z-index:3}.altar-card p{color:rgba(197,134,65,.58);line-height:1.5;z-index:3}.cinema-band{min-height:86vh;position:relative;display:grid;place-items:center;overflow:hidden;border-block:1px solid rgba(255,255,255,.12)}.cinema-band video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.46;filter:saturate(.9) contrast(1.1)}.cinema-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,3,.85),rgba(3,3,3,.35),rgba(3,3,3,.85))}.cinema-copy{position:relative;z-index:2;text-align:center;max-width:1000px;padding:40px}.cinema-copy span,.manifest span,.wide-image span,.fade-slide span,.parallax-card span,.ceremony-video span,.fixed-altar span{color:var(--accent);letter-spacing:.24em;text-transform:uppercase;font-size:12px}.cinema-copy h2{font-weight:400;font-size:clamp(48px,7vw,110px);line-height:.9;margin:18px 0 0}.procession-fade{overflow:hidden}.section-vine{position:absolute;top:8%;height:84%;max-height:960px;opacity:.13;pointer-events:none}.section-vine-left{left:-80px}.section-vine-right{right:-80px}.fade-carousel{position:relative;height:min(78vh,820px);min-height:560px;border:1px solid rgba(197,134,65,.32);background:#050505;overflow:hidden}.fade-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.25s var(--ease),transform 1.25s var(--slow);transform:scale(1.025);pointer-events:none}.fade-slide.active{opacity:1;transform:scale(1);pointer-events:auto}.fade-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.06) saturate(.95);opacity:.82}.fade-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,3,.86),rgba(3,3,3,.12),rgba(3,3,3,.66))}.fade-slide div{position:absolute;z-index:2;left:clamp(24px,7vw,120px);bottom:clamp(24px,7vw,110px);max-width:640px}.fade-slide h3{font-weight:400;font-size:clamp(54px,8vw,118px);line-height:.82;margin:10px 0 18px}.fade-slide p{font-size:clamp(16px,1.4vw,22px);line-height:1.5;color:rgba(197,134,65,.64)}.carousel-btn{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:58px;height:80px;border:1px solid rgba(197,134,65,.45);background:rgba(3,3,3,.62);color:var(--gold);font-size:48px;line-height:1;cursor:none}.carousel-btn.prev{left:18px}.carousel-btn.next{right:18px}.carousel-dots{position:absolute;z-index:5;left:50%;bottom:24px;transform:translateX(-50%);display:flex;gap:10px}.carousel-dots button{width:30px;height:2px;border:0;background:rgba(197,134,65,.32);padding:0;cursor:none}.carousel-dots button.active{background:var(--gold)}.image-liturgy{display:grid;gap:clamp(70px,10vw,150px)}.parallax-card{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(280px,.9fr);gap:clamp(30px,6vw,100px);align-items:center}.parallax-card.reverse{grid-template-columns:minmax(280px,.9fr) minmax(260px,.8fr)}.parallax-card.reverse img,.parallax-card.reverse .fixed-media{order:2}.parallax-card img{width:100%;height:clamp(460px,72vh,860px);object-fit:cover;border:1px solid rgba(255,255,255,.12);transform:translateY(var(--par,0px))}.parallax-card h3{font-weight:400;font-size:clamp(48px,7vw,110px);line-height:.86;margin:14px 0 22px}.parallax-card p{font-size:clamp(16px,1.4vw,22px);line-height:1.55;color:rgba(197,134,65,.6)}.manifest{min-height:74vh;display:grid;align-content:center;text-align:center;justify-items:center;overflow:hidden}.manifest h2{font-size:clamp(48px,8vw,132px);max-width:1280px;margin:18px auto 42px}.sin-map{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.sin-map article{border:1px solid rgba(255,255,255,.12);padding:30px;background:rgba(255,255,255,.04)}.sin-map img{height:240px;width:100%;object-fit:contain;margin-bottom:24px}.sin-map h3{font-weight:400;font-size:clamp(34px,4vw,62px);line-height:.9;margin:0 0 16px}.sin-map p{color:rgba(197,134,65,.58);line-height:1.5}.ceremony-video{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,100px);align-items:center}.ceremony-video video{height:78vh;width:100%;object-fit:cover;border:1px solid rgba(197,134,65,.35)}.ceremony-video h2{font-weight:400;font-size:clamp(56px,7vw,120px);line-height:.84;margin:14px 0 22px}.ceremony-video p{font-size:20px;line-height:1.55;color:rgba(197,134,65,.58)}.steps{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(197,134,65,.05),rgba(255,255,255,.02))}.step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step-grid article{min-height:310px;border:1px solid rgba(255,255,255,.12);padding:28px;background:rgba(3,3,3,.42);display:flex;flex-direction:column;justify-content:space-between}.step-grid span,.timeline span,.tasting span{color:var(--accent);letter-spacing:.2em;text-transform:uppercase;font-size:12px}.step-grid h3,.timeline h3{font-weight:400;font-size:clamp(32px,3.8vw,58px);line-height:.9;margin:30px 0 0}.step-grid p{color:rgba(197,134,65,.58);line-height:1.5}.fixed-craft{min-height:94vh;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,7vw,120px);align-items:center}.fixed-media{min-height:78vh;background-size:contain;background-repeat:no-repeat;background-position-y:center;background-attachment:fixed;border:1px solid rgba(197,134,65,.25)}.craft-copy p{font-size:20px;line-height:1.6;color:rgba(197,134,65,.6);max-width:700px}.use-cases,.product-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.use-cases article,.product-gallery article{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12);min-height:520px;background:#050505}.use-cases img,.product-gallery img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--slow)}.use-cases article:hover img,.product-gallery article:hover img{transform:scale(1.05)}.use-cases h3{position:absolute;left:22px;bottom:22px;right:22px;font-size:clamp(34px,4vw,62px);line-height:.88;margin:0;text-shadow:0 10px 30px #000}.origin{overflow:hidden}.origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin-left:auto}.origin-grid p{font-size:clamp(20px,2vw,32px);line-height:1.35;color:rgba(197,134,65,.62)}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.timeline article{border-top:1px solid rgba(197,134,65,.45);padding-top:26px;min-height:260px}.wide-image{height:92vh;position:relative;overflow:hidden;display:grid;place-items:center;text-align:center}.wide-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.04);opacity:.72}.wide-image::after{content:"";position:absolute;inset:0;background:rgba(3,3,3,.45)}.wide-image div{position:relative;z-index:2;max-width:980px;padding:30px}.wide-image h2{font-weight:400;font-size:clamp(56px,8vw,140px);line-height:.85;margin:18px 0 0}.contact-section{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,7vw,100px);align-items:start}.contact-copy p{font-size:20px;line-height:1.6;color:rgba(197,134,65,.58)}.contact-form{border:1px solid rgba(197,134,65,.35);padding:clamp(24px,4vw,54px);background:rgba(255,255,255,.035);display:grid;gap:20px}.contact-form label{display:grid;gap:10px;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--gold)}.contact-form input,.contact-form textarea,.contact-form select{width:100%;border:1px solid rgba(255,255,255,.18);background:#050505;color:rgba(197,134,65,.55);padding:16px;outline:none}.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--accent)}.form-status{min-height:24px;color:var(--gold);margin:0}.fixed-altar{height:82vh;background-size:cover;background-position:center;background-attachment:fixed;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden}.fixed-altar::after{content:"";position:absolute;inset:0;background:rgba(3,3,3,.48)}.fixed-altar div{position:relative;z-index:2;max-width:980px;padding:30px}.fixed-altar h2{font-weight:400;font-size:clamp(56px,8vw,130px);line-height:.84;margin:16px 0 0}.moving-bag{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,7vw,110px);align-items:center;overflow:hidden}.bag-copy p{font-size:20px;line-height:1.55;color:rgba(197,134,65,.58);max-width:680px}.bag-copy ul{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;gap:12px}.bag-copy li{border:1px solid rgba(197,134,65,.38);padding:12px 16px;text-transform:uppercase;letter-spacing:.12em;font-size:12px}.bag-stage{height:80vh;min-height:600px;position:relative;display:grid;place-items:center;perspective:900px}.bag-stage::before{content:"";position:absolute;inset:8% 12%;background:url('/img/halo.webp') center/contain no-repeat;opacity:.12;filter:drop-shadow(0 0 70px color-mix(in srgb,var(--accent),transparent 35%))}.bag-stage img:first-child{position:relative;z-index:2;width:min(54vw,520px);height:82%;object-fit:contain;filter:drop-shadow(0 42px 58px rgba(0,0,0,.55));transform:translate3d(calc(var(--tilt-x,0)*1px),calc(var(--tilt-y,0)*1px),0) rotateY(calc(var(--tilt-x,0)*.025deg)) rotateX(calc(var(--tilt-y,0)*-.025deg));transition:transform .18s linear}.bag-design{position:absolute;right:0;bottom:0;width:min(38vw,360px);opacity:.16;mix-blend-mode:screen;filter:grayscale(.3)}.product-reveal-section .grand-hero{min-height:auto;padding:0}.product-reveal-section .hero-shell{height:72vh;width:100%}.inside-split .hero-overlay h1{font-size:clamp(48px,7vw,110px)}.tasting{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.tasting article{border:1px solid rgba(255,255,255,.12);padding:28px;min-height:260px;background:rgba(255,255,255,.035)}.tasting p{font-size:clamp(18px,1.8vw,28px);line-height:1.35;margin:30px 0 0}.product-gallery{grid-template-columns:repeat(4,1fr)}.product-gallery article{min-height:520px}.site-footer{padding:70px var(--pad);display:flex;justify-content:space-between;gap:40px;border-top:1px solid rgba(255,255,255,.12);background:#030303}.footer-logo{width:130px;margin-bottom:18px}.site-footer p{max-width:430px;color:rgba(197,134,65,.48);line-height:1.5}.site-footer nav{display:flex;gap:20px;flex-wrap:wrap;align-content:flex-start;text-transform:uppercase;letter-spacing:.1em;font-size:12px}.reveal{opacity:0;transform:translateY(36px);transition:opacity .45s var(--ease),transform .45s var(--slow)}.reveal.in-view{opacity:1;transform:translateY(0)}
+@media(max-width:980px){body{cursor:auto}.cursor{display:none}.site-header{height:auto;mix-blend-mode:normal;background:rgba(3,3,3,.15);padding:12px 18px}.brand img{width:100px;height:100px}.nav-toggle{display:block}.main-nav{position:fixed;inset:86px 0 auto 0;background:#030303;padding:24px;display:grid;gap:8px;transform:translateY(calc(-100% - 100vh));transition:transform .6s var(--ease)}.nav-open .main-nav{transform:translateY(0)}.drop-panel{position:static;opacity:1;transform:none;pointer-events:auto;min-width:0;margin-top:8px}.grand-hero{padding-top:104px}.hero-shell{height:72svh;width:94vw}.slice-stage{gap:13px;grid-template-columns:repeat(7,1fr)}.slice:nth-child(n+8){display:none}.slice img{width:700%;transform:translateX(calc(var(--i) * -14.285%))}.hero-overlay h1{font-size:clamp(48px,16vw,98px)}.altar-grid,.sin-map,.step-grid,.use-cases,.product-gallery,.timeline,.tasting{grid-template-columns:1fr}.altar-card{min-height:520px}.ceremony-video,.fixed-craft,.moving-bag,.contact-section,.origin-grid,.parallax-card,.parallax-card.reverse{grid-template-columns:1fr}.parallax-card.reverse img,.parallax-card.reverse .fixed-media{order:0}.fixed-media,.fixed-altar{background-attachment:scroll}.fade-carousel{height:68vh;min-height:520px}.carousel-btn{display:none}.product-gallery article,.use-cases article{min-height:440px}.site-footer{display:grid}.product-reveal-section .hero-shell{height:64vh}.bag-stage{height:64vh;min-height:480px}.bag-stage img:first-child{width:min(82vw,440px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.fade-slide{transition:none!important}.reveal{opacity:1;transform:none}}
 
 
-/* ============================== */
-/* Home refinements requested — v3 */
-/* ============================== */
 .cursor.is-clicked{width:104px;height:104px;opacity:.76;filter:drop-shadow(0 0 26px rgba(197,134,65,.68))}.cursor.is-clicked .cursor-eye{opacity:0;transform:translate(-50%,-50%) scale(.4)}.cursor.is-clicked .cursor-potato{opacity:1;background-image:url('/img/chip-patata-halo.webp');transform:rotate(-7deg) scale(1.06)}
 .drop-panel{top:100%;transform:none;background:linear-gradient(135deg,rgba(8,8,7,.82),rgba(3,3,3,.64));backdrop-filter:blur(18px) saturate(145%);-webkit-backdrop-filter:blur(18px) saturate(145%);border-color:rgba(197,134,65,.48);box-shadow:0 30px 90px rgba(0,0,0,.62),inset 0 1px 0 rgba(255,255,255,.08);transition:opacity .35s var(--ease);isolation:isolate}
 .main-nav a:hover::after{transform:scaleX(0)}
@@ -70,7 +59,6 @@ h1{font-family:var(--serif);color:rgba(197,134,65,.82);}
 .home-final-ritual{min-height:92vh;background:linear-gradient(rgba(3,3,3,.58),rgba(3,3,3,.74)),url('/img/patata-story-05.webp') center/cover fixed;isolation:isolate}.home-final-ritual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(197,134,65,.22),transparent 46%);z-index:-1}.home-final-ritual span,.home-final-ritual h2,.home-final-ritual a{position:relative;z-index:2;text-shadow:0 20px 54px #000}.site-footer{position:relative;isolation:isolate;overflow:hidden;min-height:300px;align-items:center}.site-footer::before{content:"";position:absolute;inset:0;background:url('/img/halo.webp') center/260px auto no-repeat;opacity:.28;filter:drop-shadow(0 0 38px rgba(197,134,65,.5));z-index:-1}.site-footer::after{content:"";position:absolute;left:50%;top:50%;width:520px;height:520px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(197,134,65,.12),transparent 65%);z-index:-2}
 @media(max-width:980px){.home-hero-section{padding:88px 0 14px}.home-hero-section .hero-shell{width:96vw;height:calc(100svh - 112px);min-height:560px}.home-hero-section .vine{height:78svh;opacity:.25}.home-bag-grid{grid-template-columns:1fr;gap:40px}.home-bag-card{min-height:auto;padding:0 0 44px}.home-bag-card img{width:min(84vw,430px);height:auto;max-height:620px}.home-fixed-intro,.home-final-ritual{background-attachment:scroll}.home-ritual-video{grid-template-columns:1fr;grid-template-areas:"video" "copy";min-height:auto}.cinema-flower{display:none}.home-video-frame{width:92vw;height:70vh}.home-procession .fade-carousel{max-width:92vw;min-height:600px}.home-procession .fade-slide img{max-width:86vw;max-height:46vh}.procession-chip{opacity:.12}.site-footer::before{background-size:130px auto}}
 
-/* ===== HOME v4 refinements — Santuario only ===== */
 .home-hero-section{min-height:100svh;padding:72px 0 10px;}
 .home-hero-section{padding-top:0;}
 .home-hero-section .hero-shell{height:100svh;max-height:none;min-height:680px;width:min(98.8vw,2040px);align-self:start;}
@@ -79,7 +67,6 @@ h1{font-family:var(--serif);color:rgba(197,134,65,.82);}
 .home-hero-section .vine-right{right:0;transform:translate(10%,-50%);}
 .home-hero-section .slice-stage{padding:clamp(8px,1.2vw,18px) clamp(6px,1vw,16px);}
 
-/* ===== Parity: every sectioned hero-image matches the home hero look ===== */
 .grand-hero{padding:0;}
 .grand-hero .hero-shell{width:min(98.8vw,2040px);height:100svh;max-height:none;min-height:680px;border:0;align-self:start;}
 .grand-hero .hero-shell::before,.grand-hero .hero-shell::after{display:none;}
@@ -131,7 +118,7 @@ body.hero-scroll-locked .grand-hero .vine{opacity:0;}
 .home-procession .tail-carousel .carousel-dots{bottom:clamp(20px,4vh,46px);z-index:20;}
 
 .home-rustic-window{height:104vh;min-height:720px;background:linear-gradient(rgba(3,3,3,.08),rgba(3,3,3,.42)),url('/img/ventana-rustica.webp') center/cover fixed;position:relative;overflow:hidden;}
-.home-rustic-window::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,3,3,0),rgba(3,3,3,.2) 64%,#030303 100%);pointer-events:none;}
+.home-rustic-window::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#030303 0%,rgba(3,3,3,0) 18%,rgba(3,3,3,.2) 64%,#030303 100%);pointer-events:none;}
 .site-footer::before{background-size:clamp(150px,16vw,260px) auto;opacity:.38;filter:drop-shadow(0 0 46px rgba(197,134,65,.62));animation:slowSpin 16s linear infinite;}
 .site-footer::after{width:min(72vw,720px);height:min(72vw,720px);opacity:.9;}
 
@@ -152,8 +139,6 @@ body.hero-scroll-locked .grand-hero .vine{opacity:0;}
   .home-rustic-window{height:84vh;min-height:560px;background-attachment:scroll;}
 }
 
-/* ===== HOME v4.1 — ajustes finos solicitados ===== */
-/* Acerca el subtítulo al título en las tres tentaciones */
 .home-bag-card{
   row-gap:0;
 }
@@ -167,7 +152,6 @@ body.hero-scroll-locked .grand-hero .vine{opacity:0;}
   transform:translateY(-0.08em);
 }
 
-/* Evita cualquier recorte del vídeo vertical del Santuario */
 .home-ritual-video{
   overflow:visible;
 }
@@ -207,7 +191,6 @@ body.hero-scroll-locked .grand-hero .vine{opacity:0;}
   }
 }
 
-/* ===== HOME v4.2 — corrección hueco títulos/subtextos y carrusel limpio ===== */
 .home-bag-grid{
   align-items:start !important;
 }
@@ -275,7 +258,6 @@ body.hero-scroll-locked .grand-hero .vine{opacity:0;}
   }
 }
 
-/* ===== HOME v6 — click: barras originales -> unión lenta -> fixed background ===== */
 .home-hero-section .split-reveal,.hero-lockable .split-reveal{
   background-image:
     radial-gradient(circle at 50% 46%,rgba(197,134,65,.22),transparent 42%),
@@ -365,7 +347,6 @@ body[data-page="santuario"] .grand-hero .full-relic{
   -webkit-backdrop-filter:saturate(112%);
 }
 
-/* ===== HOME v8 — scroll gate, temptation altar, magnetic CTA and media flow ===== */
 body.hero-scroll-locked{
   height:100svh;
   overflow:hidden;
@@ -573,12 +554,7 @@ body.hero-scroll-locked .hero-lockable .vine{
   }
 }
 
-/* ===== Per-page hero fragmentation — each page's chip + celestial spin =====
-   Each shape is a polygon; while joining/expanded it morphs to a plain
-   rectangle (same point count) so the bars close into the full image
-   with nothing hidden, same as the home hero. */
 
-/* Patata: crestas onduladas, como el filo de una chip rizada */
 body[data-page="patata"] .slice{
   clip-path:polygon(0 0,88% 0,100% 7%,88% 14%,100% 21%,88% 28%,100% 35%,88% 42%,100% 49%,88% 56%,100% 63%,88% 70%,100% 77%,88% 84%,100% 91%,88% 100%,0 100%);
 }
@@ -587,7 +563,6 @@ body[data-page="patata"] .split-reveal.expanded .slice{
   clip-path:polygon(0 0,100% 0,100% 7%,100% 14%,100% 21%,100% 28%,100% 35%,100% 42%,100% 49%,100% 56%,100% 63%,100% 70%,100% 77%,100% 84%,100% 91%,100% 100%,0 100%);
 }
 
-/* Boniato: lenguas de llama ascendiendo, picante y ahumado */
 body[data-page="boniato"] .slice{
   clip-path:polygon(0 22%,50% 0,100% 22%,100% 100%,0 100%);
 }
@@ -596,7 +571,6 @@ body[data-page="boniato"] .split-reveal.expanded .slice{
   clip-path:polygon(0 0,50% 0,100% 0,100% 100%,0 100%);
 }
 
-/* Alcachofa: puntas de hoja superpuestas, capa a capa */
 body[data-page="alcachofa"] .slice:nth-child(odd){
   clip-path:polygon(0 14%,50% 0,100% 14%,100% 100%,0 100%);
 }
@@ -608,7 +582,6 @@ body[data-page="alcachofa"] .split-reveal.expanded .slice{
   clip-path:polygon(0 0,50% 0,100% 0,100% 100%,0 100%);
 }
 
-/* El Pecado: óvalos, como el filo redondeado de una chip */
 body[data-page="pecado"] .slice{
   clip-path:polygon(98% 50%,94.35% 69.14%,83.94% 85.36%,68.36% 96.23%,50% 100%,31.64% 96.23%,16.06% 85.36%,5.65% 69.14%,2% 50%,5.65% 30.86%,16.06% 14.64%,31.64% 3.77%,50% 0%,68.36% 3.77%,83.94% 14.64%,94.35% 30.86%);
 }
@@ -617,7 +590,6 @@ body[data-page="pecado"] .split-reveal.expanded .slice{
   clip-path:polygon(100% 50%,100% 70.71%,100% 100%,70.71% 100%,50% 100%,29.29% 100%,0% 100%,0% 70.71%,0% 50%,0% 29.29%,0% 0%,29.29% 0%,50% 0%,70.71% 0%,100% 0%,100% 29.29%);
 }
 
-/* La Ceremonia: facetas de vitral, como un cristal tallado */
 body[data-page="ceremonia"] .slice{
   clip-path:polygon(18% 0,82% 0,100% 18%,100% 82%,82% 100%,18% 100%,0 82%,0 18%);
 }
@@ -626,7 +598,6 @@ body[data-page="ceremonia"] .split-reveal.expanded .slice{
   clip-path:polygon(0 0,100% 0,100% 0,100% 100%,100% 100%,0 100%,0 100%,0 0);
 }
 
-/* Génesis: rayos de luz convergiendo, el primer amanecer */
 body[data-page="genesis"] .slice{
   clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);
 }
@@ -635,7 +606,6 @@ body[data-page="genesis"] .split-reveal.expanded .slice{
   clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
 }
 
-/* Plegarias: velas encendidas, una llama por cada súplica */
 body[data-page="plegarias"] .slice{
   clip-path:polygon(50% 0,76% 16%,100% 100%,0 100%,24% 16%);
 }
@@ -644,7 +614,6 @@ body[data-page="plegarias"] .split-reveal.expanded .slice{
   clip-path:polygon(50% 0,100% 0,100% 100%,0 100%,0 0);
 }
 
-/* Tres tentaciones — procesión vertical, una hilera dorada conecta los 3 ritos */
 .altar-sanctum .altar-grid{
   display:flex;
   flex-direction:column;
@@ -838,7 +807,6 @@ body[data-page="alcachofa"] .manifest .vine{
 body[data-page="alcachofa"] .manifest .vine-left{left:0;transform:translate(-10%,-50%);}
 body[data-page="alcachofa"] .manifest .vine-right{right:0;transform:translate(10%,-50%);}
 
-/* Alcachofa — paleta verde corporativa (variantes de --olive) para coherencia de página */
 body[data-page="alcachofa"]{
   --leaf-bright:color-mix(in srgb,var(--olive),#fff 48%);
   --leaf-deep:color-mix(in srgb,var(--olive),#fff 12%);
@@ -884,7 +852,6 @@ body[data-page="alcachofa"] .btn.primary{
   color:#0b0b08;
 }
 
-/* Patata — misma estructura que Alcachofa, paleta dorada/trigo */
 body[data-page="patata"] .grand-hero.product-top > h1{
   font-size:clamp(48px,7vw,110px);
   margin-top:24px;
@@ -962,7 +929,6 @@ body[data-page="patata"] .btn.primary{
   color:#0b0b08;
 }
 
-/* Boniato — misma estructura que Alcachofa, paleta roja/brasa */
 body[data-page="boniato"] .grand-hero.product-top > h1{
   font-size:clamp(48px,7vw,110px);
   margin-top:24px;
@@ -1043,7 +1009,6 @@ body[data-page="boniato"] .btn.primary{
   color:#0b0b08;
 }
 
-/* Ceremonia — hero con el mismo difuminado lateral que patata/boniato/alcachofa */
 body[data-page="ceremonia"] .grand-hero .full-relic,
 body[data-page="genesis"] .grand-hero .full-relic{
   inset:auto;
@@ -1057,8 +1022,8 @@ body[data-page="genesis"] .grand-hero .full-relic{
 }
 body[data-page="pecado"] .grand-hero .full-relic{
   inset:auto;
-  left:50%;top:50%;
-  transform:translate(-50%,-50%);
+  left:50%;top:36%;
+  transform:translate(-50%,-30%);
   width:auto;height:100%;
   aspect-ratio:1/1;
   object-fit:cover;
@@ -1106,7 +1071,6 @@ body[data-page="pecado"] .grand-hero .full-relic{
   pointer-events:none;
 }
 
-/* ===== Tablón de comentarios (Plegarias) ===== */
 .comment-board{
   grid-column:1/-1;
   border:1px solid rgba(197,134,65,.35);
@@ -1184,4 +1148,331 @@ body[data-page="pecado"] .grand-hero .full-relic{
   .comment-form{
     grid-template-columns:1fr;
   }
+}
+
+/* ─── Tablet (≤980px) — grids que iban directo a 1fr, mejor en 2 columnas ─── */
+@media (max-width:980px) {
+  /* Ceremonia: 4 pasos en 2×2 en lugar de 4×1 */
+  .step-grid { grid-template-columns: repeat(2,1fr) }
+  /* Carrusel de procesión: altura más contenida */
+  .home-procession .fade-carousel.tail-carousel { height: clamp(600px,84vh,820px) }
+}
+
+/* ─── Móvil pequeño (≤640px) ─────────────────────────────────────────────── */
+@media (max-width:640px) {
+  /* step-grid vuelve a 1 columna */
+  .step-grid { grid-template-columns: 1fr }
+
+  /* layouts de 2 columnas que aún no se habían apilado */
+  .fixed-craft { grid-template-columns: 1fr }
+
+  /* decoraciones laterales de sección — innecesarias en pantallas pequeñas */
+  .section-vine { display: none }
+
+  /* bag-stage más manejable en alto */
+  .bag-stage { min-height: 460px }
+
+  /* media embebida en parallax — ajuste exacto al recuadro de la imagen */
+  .fixed-media{min-height:0!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;background-attachment:scroll!important}
+  .cartel-cocina-media{aspect-ratio:2/3!important}
+  .altar-media{aspect-ratio:1856/2304!important}
+
+  /* imagen corta de Ceremonia — proporcional al viewport */
+  .img-short { height: clamp(200px,44vw,300px) }
+
+  /* carrusel de procesión home — más bajo en móvil pequeño */
+  .home-procession .fade-carousel.tail-carousel { height: clamp(500px,80vh,680px) }
+  .home-procession .tail-carousel .fade-slide {
+    width: min(88vw,440px);
+    transform: translate(-50%,-50%) translateX(calc(var(--pos,0) * 28vw)) scale(calc(1 - var(--abspos,0) * .12));
+  }
+
+  /* vídeo ritual — no sobrepasar la pantalla */
+  .home-ritual-video .home-video-frame video { height: min(58vh,480px) !important }
+
+  /* hero h1 en pantallas muy pequeñas */
+  .hero-overlay h1 { font-size: clamp(40px,13vw,72px) }
+
+  /* imágenes de fondo en parallax-card — más cortas */
+  .cartel-cocina-media { height: clamp(260px,52vh,460px) }
+
+  /* bag-stage img — proporcional al ancho de pantalla */
+  .bag-stage img:first-child { width: min(80vw,400px) }
+}
+
+.nav-drop-toggle{display:none}
+
+/* ─── Móvil: réplica a escala de la disposición de desktop ──────────────────
+   En vez de apilar cada sección en 1 columna, se mantienen las columnas de
+   desktop (texto junto a imagen, tarjetas en fila) reduciendo tamaños/gaps. */
+@media (max-width:980px){
+
+  /* background-attachment:fixed renderiza mal en móvil (se ve solo una
+     línea/sliver del fondo en vez de cubrir la sección) */
+  .home-temptations-bg{background-attachment:scroll!important}
+
+  /* Título del hero de portada ("Bendito sea el crujido."): más grande,
+     ocre sólido y desplazado hacia abajo en móvil. No hace falta !important:
+     el selector ya es más específico que las reglas base y va después en
+     el archivo, así que gana por cascada normal. */
+  .home-hero-section .hero-overlay h1{font-size:clamp(56px,18vw,110px);color:rgba(197,134,65,.95);transform:translateY(-145px)}
+
+  /* Imagen del hero (trío de productos), 30px más abajo en móvil */
+  body[data-page="santuario"] .grand-hero .full-relic{top:calc(50% + 30px)}
+
+  /* Enredaderas decorativas del hero de "El Pecado", bastante más abajo en móvil */
+  .pecado-hero .vine{top:95%}
+
+  /* Título "Tres tentaciones" de "El Pecado", un poco más abajo en móvil,
+     a la par de las enredaderas de arriba. Se usa margin (no transform)
+     porque el h1 tiene la clase .reveal (mismo motivo que el kicker de la
+     home: GSAP le escribe un transform inline al entrar en viewport). */
+  body[data-page="pecado"] .altar-sanctum .section-title{margin-top:55px}
+
+  /* Kicker "El Pecado", un poco más abajo en móvil. Se usa "bottom" en vez de
+     "transform" a propósito: el kicker tiene la clase .reveal, y GSAP le
+     escribe un transform inline al entrar en viewport (ver useSantaPapa.ts,
+     ~línea 199) que ganaría siempre a cualquier transform del CSS. */
+  .home-hero-section .hero-overlay .section-kicker{bottom:41px}
+
+  /* Flecha de scroll bajo el kicker, un poco más abajo en móvil */
+  .home-hero-section .scroll-cue{bottom:7px}
+
+  /* El título "Tres tentaciones" se difumina (blur) al hacer scroll-fade;
+     en móvil el salto de scroll tras el hero-lock hace que aparezca ya muy
+     desenfocado, pareciendo una línea/mancha dorada en vez de texto. Se
+     desactiva el blur en móvil y se deja solo el fade de opacidad. */
+  /* .altar-sanctum{overflow:hidden} recortaba cualquier transform que
+     subiera el título por encima del propio borde de la sección. Se
+     desactiva en móvil para poder subirlo libremente con translateY. */
+  .altar-sanctum{overflow:visible!important}
+  .home-temptations{padding-top:12px!important;margin-top:50px}
+  .home-temptations .section-title.in-view{filter:none!important;opacity:1!important;font-size:clamp(20px,7vw,28px)!important;transform:translateY(-25px)!important}
+
+  /* Botón "Conoce las tentaciones" más abajo en móvil, con margin (no
+     transform) para que las secciones siguientes bajen también. Además
+     .cta-stage tiene la clase .reveal, así que un transform competiría con
+     el que le escribe GSAP al entrar en viewport (igual que con el kicker). */
+  .cta-stage{margin-top:100px}
+
+  /* Carrusel de procesión: fotos más grandes y sección pegada al bloque
+     de arriba (tres tentaciones) */
+  .home-procession{padding-top:0!important;margin-top:-105px!important}
+  .home-procession .tail-carousel .fade-slide{width:min(94vw,620px)!important;height:min(94vh,920px)!important}
+  .home-procession .tail-carousel .fade-slide img{max-width:min(94vw,620px)!important;max-height:min(92vh,900px)!important}
+  .home-procession .tail-carousel .carousel-dots{display:none!important}
+
+  /* Footer: logo a la izquierda, halo central (::before, ya centrado) y
+     enlaces en columna a la derecha, en vez de apilarse todo en 1 columna */
+  .site-footer{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:16px!important}
+  .site-footer nav{display:flex!important;flex-direction:column!important;align-items:flex-end!important;gap:10px!important}
+  .site-footer::before{background-size:90px auto!important}
+
+  /* Franjas del intro (home, móvil): el desfase vertical de cada franja
+     (hasta ±14.4vh, pensado para el alto de desktop) se salía del hero-shell
+     y quedaba recortado por su overflow:hidden, perdiendo parte de la imagen.
+     Se mantiene el desfase (no se alinean), pero se da hueco de sobra arriba/
+     abajo para que toda franja entre completa, aunque las franjas encojan. */
+  .home-hero-section .slice-stage{padding:16vh clamp(6px,1vw,16px)!important}
+
+  /* Sube todo el bloque (franjas + halo + "sé testigo") más cerca de la
+     cabecera, para reducir el hueco vacío que queda arriba en móvil. */
+  .home-hero-section .hero-shell{transform:translateY(-65px)!important}
+
+  /* La portada (home, móvil) se medía con 100svh (el caso de barra de
+     direcciones desplegada). Si el navegador la colapsa, el viewport real
+     es más alto que 100svh y queda un hueco al fondo por el que se ve el
+     título de la siguiente sección. Se fuerza al mayor (100lvh) mientras
+     está bloqueado el scroll, para que nunca quede más corto que la pantalla. */
+  .home-hero-section{min-height:100lvh!important}
+  body.hero-scroll-locked{height:100lvh!important}
+  body.hero-scroll-locked main,
+  body.hero-scroll-locked .home-hero-section,
+  body.hero-scroll-locked .hero-lockable{max-height:100lvh!important}
+
+  /* El título "Tres tentaciones..." viene con la clase in-view ya puesta en
+     el propio markup (no se revela por scroll) y se sube -25px por encima de
+     su sección. Esos 25px lo meten dentro de la pantalla bloqueada del intro,
+     asomando por debajo de las franjas. Se anula esa subida solo mientras
+     el hero sigue bloqueado (antes de clicar); en cuanto se abre, recupera
+     su posición normal. */
+  body.hero-scroll-locked .home-temptations .section-title{transform:none!important}
+
+  /* Navbar móvil: mucho más translúcida que el rgba(.88) original */
+  .site-header{background:rgba(3,3,3,.32)!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important}
+
+  /* Navbar móvil: mucho más translúcida que el rgba(.88) original */
+  .site-header{background:rgba(3,3,3,.32)!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important}
+
+  /* Menú hamburguesa: "El Pecado" despliega su submenú con un toggle propio
+     (igual que el hover en desktop), en vez de quedar siempre abierto. */
+  .nav-drop{padding-bottom:0!important;margin-bottom:0!important;display:grid!important;grid-template-columns:1fr auto!important}
+  .nav-drop>a{grid-column:1}
+  .nav-drop-toggle{display:flex!important;grid-column:2;align-items:center;justify-content:center;width:42px;height:42px;background:transparent;border:1px solid rgba(197,134,65,.55);color:#fff;font-size:14px}
+  .nav-drop-toggle::after{content:"+"}
+  .nav-drop-toggle[aria-expanded="true"]::after{content:"–"}
+  .nav-drop .drop-panel{grid-column:1/-1;display:none!important;position:static!important;opacity:1!important;transform:none!important;pointer-events:auto!important;min-width:0!important;margin-top:8px!important}
+  .nav-drop.open .drop-panel{display:grid!important}
+
+  /* Home: 3 bolsas en fila, como en desktop, a escala */
+  .home-bag-grid{grid-template-columns:repeat(3,1fr)!important;width:94vw!important;gap:8px!important;align-items:center!important}
+  .home-bag-card{grid-template-rows:1fr!important;min-height:0!important;padding:0!important}
+  .home-bag-visual{height:auto!important;min-height:0!important}
+  .home-bag-card img{width:100%!important;max-width:130px!important;height:auto!important}
+  .home-bag-card .number{font-size:11px!important}
+
+  /* Home: vídeo + texto lado a lado, como en desktop */
+  .home-ritual-video{grid-template-columns:minmax(120px,.9fr) minmax(150px,1.1fr)!important;grid-template-areas:"copy video"!important;gap:12px!important;min-height:auto!important;padding-block:0!important}
+  .home-ritual-video .home-video-frame{width:100%!important;height:auto!important;justify-self:stretch!important}
+  .home-ritual-video .home-video-frame video{width:100%!important;height:auto!important;max-height:none!important}
+  .home-ritual-video .cinema-copy{text-align:left!important;width:100%!important}
+  .home-ritual-video .cinema-copy h2{font-size:clamp(18px,6vw,30px)!important;margin:8px 0 0!important}
+  .home-ritual-video .cinema-copy p{font-size:clamp(11px,3vw,14px)!important;line-height:1.4!important;margin:10px 0 0!important;max-width:none!important}
+
+  /* Ceremonia: 4 pasos en 2 columnas siempre (nunca se apilan en 1) */
+  .step-grid{grid-template-columns:repeat(2,1fr)!important;gap:10px!important}
+  .step-grid article{min-height:0!important;padding:16px!important}
+  .step-grid h3{font-size:clamp(18px,5.2vw,30px)!important;margin-top:14px!important}
+  .step-grid p{font-size:clamp(11px,3vw,14px)!important;line-height:1.4!important}
+
+  /* Ceremonia: imagen fija + texto lado a lado */
+  .fixed-craft{grid-template-columns:.9fr 1.1fr!important;gap:12px!important;min-height:auto!important}
+  .fixed-craft .fixed-media{aspect-ratio:1856/2304!important;height:auto!important;min-height:0!important}
+  .craft-copy .section-title{font-size:clamp(18px,6vw,30px)!important;margin-bottom:8px!important}
+  .craft-copy p{font-size:clamp(11px,3vw,14px)!important;line-height:1.4!important;max-width:none!important}
+
+  /* Productos (alcachofa/boniato/patata): texto + bolsa lado a lado */
+  .moving-bag{grid-template-columns:.85fr 1.15fr!important;gap:10px!important}
+  .bag-copy .section-title{font-size:clamp(18px,6vw,30px)!important;margin-bottom:6px!important}
+  .bag-copy p{font-size:clamp(11px,3vw,14px)!important;line-height:1.4!important;max-width:none!important}
+  .bag-copy ul{gap:6px!important;margin-top:10px!important}
+  .bag-copy li{font-size:8px!important;padding:5px 7px!important}
+  .bag-stage{height:38vw!important;min-height:0!important}
+  .bag-stage img:first-child{width:min(58vw,220px)!important}
+  .bag-design{width:min(28vw,130px)!important}
+
+  /* Génesis: imagen + texto lado a lado (incl. tarjetas invertidas) */
+  .genesis-liturgy .parallax-card .fixed-media{transform:translateX(15%) scale(1.15)!important}
+  .genesis-liturgy .parallax-card .cartel-cocina-media{height:50vw!important}
+  .genesis-liturgy .parallax-card .altar-media{transform:translateX(15%) scale(1.08)!important;height:43vw!important}
+  .parallax-card,.parallax-card.reverse{grid-template-columns:1fr 1fr!important;gap:12px!important}
+  .parallax-card.reverse img,.parallax-card.reverse .fixed-media{order:2!important}
+  .parallax-card .cartel-cocina-media{height:36vw!important;min-height:0!important}
+  .parallax-card span{font-size:9px!important}
+  .parallax-card h3{font-size:clamp(16px,5.5vw,28px)!important;margin:6px 0 8px!important}
+  .parallax-card p{font-size:clamp(11px,3vw,14px)!important;line-height:1.4!important}
+
+  /* El Pecado: imagen + número/título/texto lado a lado (igual que desktop) */
+  .altar-sanctum .altar-grid::before{display:block!important}
+  .altar-sanctum .altar-card{grid-template-columns:1fr 1fr!important;grid-template-rows:auto auto 1fr!important;column-gap:14px!important;padding:clamp(28px,7vw,50px) 0!important}
+  .altar-sanctum .altar-card img,.altar-sanctum .altar-card::before{grid-column:1!important;grid-row:1/4!important;height:clamp(120px,42vw,210px)!important;transform:rotate(-2deg)!important}
+  .altar-sanctum .altar-card .number,.altar-sanctum .altar-card h3,.altar-sanctum .altar-card p{grid-column:2!important;justify-self:start!important;text-align:left!important;max-width:none!important}
+  .altar-sanctum .altar-card .number{font-size:clamp(28px,9vw,48px)!important}
+  .altar-sanctum .altar-card h3{font-size:clamp(20px,6.5vw,34px)!important;margin:-4px 0 8px!important}
+  .altar-sanctum .altar-card:nth-child(even) img,.altar-sanctum .altar-card:nth-child(even)::before{grid-column:2!important;transform:rotate(2deg)!important}
+  .altar-sanctum .altar-card:nth-child(even) .number,.altar-sanctum .altar-card:nth-child(even) h3,.altar-sanctum .altar-card:nth-child(even) p{grid-column:1!important;justify-self:end!important;text-align:right!important}
+
+  body[data-page="pecado"] .grand-hero .full-relic{top:30%!important}
+  .patata-hero .full-relic{object-position:center 80%!important}
+  .boniato-hero{padding-top:65px!important}
+  .grand-hero.product-top{min-height:0!important;padding-bottom:12px!important}
+  .grand-hero.product-top h1{margin-top:-6svh!important}
+  .grand-hero.product-top ~ .moving-bag .bag-stage img:first-child{margin-top:-60px!important}
+  .ceremonia-hero .hero-shell,.genesis-hero .hero-shell{height:65svh!important;width:85vw!important}
+  .ceremonia-hero .split-reveal.expanded .full-relic,.genesis-hero .split-reveal.expanded .full-relic{object-fit:cover!important;-webkit-mask-image:linear-gradient(180deg,transparent 0%,black 18%,black 82%,transparent 100%),linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)!important;-webkit-mask-composite:destination-in!important;mask-image:linear-gradient(180deg,transparent 0%,black 18%,black 82%,transparent 100%),linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)!important;mask-composite:intersect!important}
+  .ceremonia-hero,.genesis-hero{min-height:0!important;padding-top:104px!important;padding-bottom:12px!important}
+  .ceremonia-hero + .section-pad,.genesis-hero + .section-pad{margin-top:-8svh!important;padding-top:24px!important;position:relative!important;z-index:2!important;background:#030303!important}
+
+  /* Anular máscara horizontal de desktop en móvil y aplicar fundido vertical */
+  .grand-hero .full-relic{mask-image:none!important;-webkit-mask-image:none!important}
+  .grand-hero.product-top .hero-shell{height:65svh!important;width:85vw!important;}
+  .product-top .split-reveal.expanded .full-relic{object-fit:cover!important;-webkit-mask-image:linear-gradient(180deg,transparent 0%,black 18%,black 82%,transparent 100%),linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)!important;-webkit-mask-composite:destination-in!important;mask-image:linear-gradient(180deg,transparent 0%,black 18%,black 82%,transparent 100%),linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)!important;mask-composite:intersect!important}
+
+  /* Plegarias: subir el h1 del hero */
+  .plegarias-hero .hero-overlay h1{margin-top:-390px}
+  .plegarias-hero .hero-overlay p{margin-top:-580px}
+  .plegarias-hero .vine{top:28%}
+  .plegarias-hero + .contact-section{margin-top:-38svh;padding-top:16px;position:relative;z-index:2;background:#030303}
+
+  /* El Pecado móvil: ocultar flecha de scroll y acercar secciones al hero.
+     Antes el selector era ".scroll-cue" sin acotar, así que ocultaba la
+     flecha en TODAS las páginas en móvil (incluida la home). Se acota a
+     .pecado-hero para que solo afecte a esa página, como decía el comentario. */
+  .pecado-hero .scroll-cue{display:none!important}
+  .pecado-hero{min-height:0!important}
+  .pecado-hero .hero-shell{height:68svh!important}
+  .pecado-hero + .product-altars.section-pad{margin-top:-16svh!important;padding-top:20px!important;position:relative!important;z-index:2!important;background:#030303!important}
+
+}
+
+/* ─── Tablet grande (981-1024px) ──────────────────────────────────────────
+   Este rango queda fuera del bloque móvil de arriba (corta en 980px), así
+   que hereda el CSS de escritorio puro. Ahí .grand-hero.product-top fuerza
+   min-height:100svh aunque el contenido no lo necesite, dejando un hueco
+   enorme entre el h1 del hero y la sección "moving-bag" en patata/boniato/
+   alcachofa. Se repite aquí solo el recorte del hero de producto (líneas
+   ~1378-1380 de arriba), sin tocar el resto del layout de escritorio. */
+@media (min-width:981px) and (max-width:1024px){
+  .grand-hero.product-top{min-height:0!important;padding-bottom:12px!important}
+  .grand-hero.product-top + .moving-bag{margin-top:-230px!important}
+  .grand-hero.product-top ~ .moving-bag .bag-stage img:first-child{margin-top:-60px!important}
+  .patata-hero .full-relic{object-position:center 80%!important}
+  .boniato-hero{padding-top:65px!important}
+
+  /* Mismo difuminado (fundido vertical + horizontal) que ya tienen estas
+     imágenes de hero en móvil, ahora también en tablet: anula la máscara
+     solo-horizontal de escritorio y aplica la combinada. */
+  .grand-hero .full-relic{mask-image:none!important;-webkit-mask-image:none!important}
+  .ceremonia-hero .split-reveal.expanded .full-relic,.genesis-hero .split-reveal.expanded .full-relic{object-fit:cover!important;-webkit-mask-image:linear-gradient(180deg,transparent 0%,black 18%,black 82%,transparent 100%),linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)!important;-webkit-mask-composite:destination-in!important;mask-image:linear-gradient(180deg,transparent 0%,black 18%,black 82%,transparent 100%),linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)!important;mask-composite:intersect!important}
+  .product-top .split-reveal.expanded .full-relic{object-fit:cover!important;-webkit-mask-image:linear-gradient(180deg,transparent 0%,black 18%,black 82%,transparent 100%),linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)!important;-webkit-mask-composite:destination-in!important;mask-image:linear-gradient(180deg,transparent 0%,black 18%,black 82%,transparent 100%),linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)!important;mask-composite:intersect!important}
+
+  /* Flechita junto a "El Pecado" para desplegar el dropdown en tablet: aquí
+     no hay hover táctil fiable como en desktop. El JS del toggle ya existe
+     (useSantaPapa.ts) y funciona a cualquier ancho, solo faltaba mostrar y
+     diseñar el botón, que en desktop está oculto (display:none). */
+  .nav-drop-toggle{display:inline-flex!important;width:18px;height:18px;margin-left:2px;align-items:center;justify-content:center;background:transparent;border:0;color:currentColor;font-size:11px;vertical-align:middle}
+  .nav-drop-toggle::after{content:"▾";transition:transform .3s var(--ease)}
+  .nav-drop-toggle[aria-expanded="true"]::after{transform:rotate(180deg)}
+
+  /* En tablet manda el clic, no el :hover de escritorio (si no, el panel se
+     queda abierto por debajo del cursor aunque el JS ya haya quitado .open) */
+  .nav-drop:hover .drop-panel{opacity:0!important;transform:translateY(16px)!important;pointer-events:none!important}
+  .nav-drop.open .drop-panel{opacity:1!important;transform:translateY(0)!important;pointer-events:auto!important}
+
+  /* Footer: el halo centrado (::before/::after) se solapa con el nav cuando
+     este va en fila larga a 1024px. Mismo arreglo que ya usa móvil: nav en
+     columna a la derecha y halo más pequeño. */
+  .site-footer{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:16px!important}
+  .site-footer nav{display:flex!important;flex-direction:column!important;align-items:flex-end!important;gap:10px!important}
+  .site-footer::before{background-size:90px auto!important}
+
+  /* Ceremonia: las 4 imágenes de step-grid solo tenían alto fijo en la
+     tercera (.img-short); el resto usaba su alto natural, desalineando
+     número/título/texto entre tarjetas. Se igualan (más específico que
+     .img-short, gana sin !important) solo para el rango de tablet, donde
+     el grid vuelve a 4 columnas en una fila. */
+  .step-grid img{height:240px;width:100%;object-fit:cover}
+
+  /* Con las imágenes ya igualadas, lo que seguía desalineando número/título
+     era "justify-content:space-between" en la tarjeta: reparte el hueco
+     sobrante según cuánto ocupe cada título (algunos envuelven a 2 líneas,
+     otros a 3), así que cada tarjeta arrancaba el número a distinta altura.
+     Con flex-start, cada elemento va justo detrás del anterior, igual en
+     las 4 tarjetas. */
+  .step-grid article{justify-content:flex-start!important}
+
+  /* Los títulos envuelven a distinto número de líneas según la tarjeta
+     (2 o 3), así que con flex-start el párrafo de cada una arranca a una
+     altura distinta. Se reserva hueco para 3 líneas (el máximo) en el
+     título, así el párrafo empieza igual en las 4. */
+  .step-grid h3{min-height:2.7em}
+  .step-grid p{margin-top:20px}
+
+  /* El cursor personalizado solo se posiciona por JS si matchMedia
+     '(pointer:fine)' es true (useSantaPapa.ts). En tablet táctil es false,
+     así que nunca se mueve y queda anclado en su posición CSS inicial
+     (arriba a la izquierda). Igual que ya hace móvil (≤980px): ocultarlo y
+     devolver el cursor del sistema. */
+  body{cursor:auto}
+  .cursor{display:none}
 }
