@@ -5,12 +5,6 @@ import { usePathname } from 'next/navigation'
 export function useSantaPapa() {
   const pathname = usePathname()
 
-  // Un recarga real (F5) de la pestaña debe olvidar que el hero ya se abrió.
-  // Deps vacías: esto solo se monta una vez por carga real del documento,
-  // a diferencia del efecto de abajo (depende de pathname y se re-ejecuta
-  // en cada navegación SPA, donde performance.navigation sigue marcando
-  // 'reload' aunque no lo sea — por eso antes borraba sessionStorage en
-  // cada visita a la home y las franjas nunca se quedaban "recordadas").
   useLayoutEffect(() => {
     const navEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined
     if (navEntry?.type === 'reload') {
@@ -18,11 +12,6 @@ export function useSantaPapa() {
     }
   }, [])
 
-  // Decide ANTES del primer paint si el hero con franjas (home/pecado) nace
-  // ya expandido (ya se abrió antes en esta sesión) o con las franjas
-  // clicables (primera vez). Va separado del efecto de abajo porque ese
-  // depende de la carga async de GSAP, y esperar a que resuelva dejaría
-  // ver un parpadeo de las franjas sin abrir en cada vuelta a la home.
   useLayoutEffect(() => {
     const box = document.querySelector<HTMLElement>('[data-split]')
     if (!box) return
@@ -36,20 +25,11 @@ export function useSantaPapa() {
     }
   }, [pathname])
 
-  // pathname en el array de dependencias garantiza que el efecto
-  // se desmonta y se vuelve a montar en cada navegación client-side,
-  // re-ejecutando toda la lógica de inicialización (GSAP, cursor, carousel...)
   useEffect(() => {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
     const fine   = matchMedia('(pointer:fine)').matches
     const isMobile = matchMedia('(max-width:980px)').matches
 
-    // Page identity (data-page/--accent/.product-page). Antes vivía en un
-    // <Script id="pd"> por página, pero next/script deduplica por id en toda
-    // la sesión: solo la primera página visitada llegaba a ejecutarlo, así
-    // que al navegar el resto heredaba el data-page (y sus cortes de slice)
-    // de la página anterior. Se centraliza aquí porque este efecto sí se
-    // re-ejecuta en cada cambio de pathname.
     const pageMeta: Record<string, { page: string; accent: string; product?: boolean }> = {
       '/':          { page: 'santuario', accent: '#c58641' },
       '/pecado':    { page: 'pecado',    accent: '#c58641' },
@@ -67,12 +47,10 @@ export function useSantaPapa() {
       document.body.classList.toggle('product-page', !!meta.product)
     }
 
-    // Preloader
     const onLoad = () => document.body.classList.add('loaded')
     window.addEventListener('load', onLoad)
     const loadTimer = setTimeout(() => document.body.classList.add('loaded'), 900)
 
-    // Smooth scroll (fine pointer only)
     const smoothCleanups: (() => void)[] = []
     if (fine && !reduce) {
       const maxScroll = () => document.documentElement.scrollHeight - innerHeight
@@ -105,15 +83,18 @@ export function useSantaPapa() {
       )
     }
 
-    // Nav active state
     const page = document.body.dataset.page
     document.querySelectorAll<HTMLElement>('[data-nav]').forEach(a => {
       a.classList.remove('is-active')
       if (a.dataset.nav === page) a.classList.add('is-active')
     })
 
-    // Fixed-background media sync
-    const fixedMediaEls = [...document.querySelectorAll<HTMLElement>('.fixed-media')]
+    // ponytail: el offset por rect.left solo tiene sentido con
+    // background-attachment:fixed (posicionado contra el viewport). En
+    // móvil el CSS cambia a "scroll" (fixed va mal en móviles), donde
+    // background-position es relativo al propio elemento, no al viewport
+    // — aplicar ese offset ahí empuja la imagen fuera de su caja.
+    const fixedMediaEls = isMobile ? [] : [...document.querySelectorAll<HTMLElement>('.fixed-media')]
     const syncFixedMedia = () => fixedMediaEls.forEach(el => {
       const rect = el.getBoundingClientRect()
       el.style.backgroundSize = `${rect.width}px auto`
@@ -121,7 +102,6 @@ export function useSantaPapa() {
     })
     if (fixedMediaEls.length) { syncFixedMedia(); window.addEventListener('resize', syncFixedMedia) }
 
-    // Mobile nav toggle
     const navToggle = document.querySelector<HTMLButtonElement>('.nav-toggle')
     const onNavToggle = () => {
       const open = document.body.classList.toggle('nav-open')
@@ -129,7 +109,6 @@ export function useSantaPapa() {
     }
     navToggle?.addEventListener('click', onNavToggle)
 
-    // Mobile submenu toggle (El Pecado)
     const dropToggle = document.querySelector<HTMLButtonElement>('.nav-drop-toggle')
     const onDropToggle = () => {
       const drop = dropToggle?.closest('.nav-drop')
@@ -138,7 +117,6 @@ export function useSantaPapa() {
     }
     dropToggle?.addEventListener('click', onDropToggle)
 
-    // Cerrar el menú móvil y el dropdown "El Pecado" al clicar fuera
     const mainNav = document.querySelector('.main-nav')
     const onOutsideClick = (e: MouseEvent) => {
       const target = e.target as Node
@@ -154,7 +132,6 @@ export function useSantaPapa() {
     }
     document.addEventListener('click', onOutsideClick)
 
-    // ── GSAP: cursor + scroll reveals + split-hero ─────────────────────
     let gsapCleanup: (() => void) | undefined
 
     Promise.all([
@@ -163,7 +140,6 @@ export function useSantaPapa() {
     ]).then(([gsap, ScrollTrigger]) => {
       gsap.registerPlugin(ScrollTrigger)
 
-      // 1. Cursor suavizado con gsap.ticker
       const cursor = document.querySelector<HTMLElement>('#cursor')
       let cursorTick: (() => void) | undefined
       if (cursor && fine) {
@@ -196,16 +172,11 @@ export function useSantaPapa() {
         window.addEventListener('pointercancel', () => cursor.classList.remove('is-clicked'))
       }
 
-      // 2. Scroll reveals con ScrollTrigger
       const triggers: ReturnType<typeof ScrollTrigger.create>[] = []
       if (!reduce) {
         document.querySelectorAll<HTMLElement>('.reveal').forEach(el => {
-          // Reset estado previo por si venimos de otra página
           gsap.set(el, { opacity: 0, y: 36 })
           el.classList.remove('in-view')
-          // ponytail: en móvil, las 3 bolsas de producto solo deben aparecer
-          // al llegar a la mitad del viewport (y desaparecer de nuevo al
-          // subir), no quedarse reveladas para siempre como el resto
           const isMobileBagCard = isMobile && el.classList.contains('home-bag-card')
           const start = isMobileBagCard ? 'top 50%' : 'top 92%'
           triggers.push(ScrollTrigger.create({
@@ -216,8 +187,6 @@ export function useSantaPapa() {
               opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
               onComplete: () => {
                 el.classList.add('in-view')
-                // ponytail: GSAP leaves an inline opacity:1 that outranks the
-                // CSS var(--scroll-fade) rule; clear it so scroll-fade can drive opacity again
                 if (el.hasAttribute('data-scroll-fade')) gsap.set(el, { clearProps: 'opacity' })
               },
             }),
@@ -235,17 +204,12 @@ export function useSantaPapa() {
         })
       }
 
-      // 3. Split-hero: GSAP anima overlay y scroll-cue tras la unión CSS
       document.querySelectorAll<HTMLElement>('[data-split]').forEach(box => {
         box.setAttribute('role', 'button'); box.setAttribute('tabindex', '0')
         const isHome = Boolean(box.closest('.home-hero-section, .hero-lockable'))
         const heroKey = 'heroOpened:' + location.pathname
-        // Estado inicial (expanded vs. franjas + scroll bloqueado) ya lo
-        // decide el useLayoutEffect de arriba antes del primer paint.
         const doToggle = () => {
           if (!isHome) { box.classList.toggle('expanded'); return }
-          // Una vez abierto, clicar el hero de home/pecado no hace nada:
-          // no debe volver a colapsarse ni a mostrar las franjas.
           if (box.classList.contains('is-joining') || box.classList.contains('expanded')) return
           box.classList.add('is-joining')
           setTimeout(() => {
@@ -271,7 +235,6 @@ export function useSantaPapa() {
       }
     })
 
-    // Magnetic CTA
     const magneticItems = [...document.querySelectorAll<HTMLElement>('[data-magnetic]')]
     let magnetRaf: number
     if (magneticItems.length && fine && !reduce) {
@@ -302,13 +265,11 @@ export function useSantaPapa() {
       magnetRaf = requestAnimationFrame(tick)
     }
 
-    // Fade carousel
     const carouselRafs: number[] = []
     document.querySelectorAll<HTMLElement>('[data-fade-carousel]').forEach(carousel => {
       const slides = [...carousel.querySelectorAll<HTMLElement>('.fade-slide')]
       const total = slides.length
       const dotsWrap = carousel.querySelector('.carousel-dots')
-      // Limpiar dots previos si los hay (por re-ejecución del hook)
       if (dotsWrap) dotsWrap.innerHTML = ''
       let pos = Math.max(0, slides.findIndex(s => s.classList.contains('active')))
       let activeIndex = Math.round(pos) % total
@@ -344,7 +305,6 @@ export function useSantaPapa() {
       if (!reduce) { cRaf = requestAnimationFrame(tick); carouselRafs.push(cRaf) }
     })
 
-    // Bag tilt
     document.querySelectorAll<HTMLElement>('[data-tilt]').forEach(stage => {
       if (!fine || reduce) return
       stage.addEventListener('mousemove', (e: MouseEvent) => {
@@ -357,7 +317,6 @@ export function useSantaPapa() {
       })
     })
 
-    // Parallax cards
     let parRaf: number
     const parEls = [...document.querySelectorAll<HTMLElement>('.parallax-card img')]
     if (parEls.length && !reduce) {
@@ -371,7 +330,6 @@ export function useSantaPapa() {
       parRaf = requestAnimationFrame(upd)
     }
 
-    // Scroll-fade
     let sfRaf: number
     const sfEls = [...document.querySelectorAll<HTMLElement>('[data-scroll-fade]')]
     if (sfEls.length && !reduce) {
@@ -385,7 +343,6 @@ export function useSantaPapa() {
       sfRaf = requestAnimationFrame(upd)
     }
 
-    // Fade-with
     let fwRaf: number
     const fwEls = [...document.querySelectorAll<HTMLElement>('[data-fade-with]')]
     if (fwEls.length && !reduce) {
@@ -403,7 +360,6 @@ export function useSantaPapa() {
       fwRaf = requestAnimationFrame(upd)
     }
 
-    // Contact form
     const form = document.querySelector<HTMLFormElement>('[data-contact-form]')
     const onSubmit = async (e: Event) => {
       e.preventDefault()
@@ -433,7 +389,6 @@ export function useSantaPapa() {
     }
     form?.addEventListener('submit', onSubmit)
 
-    // Cleanup: se ejecuta antes de cada re-run (cambio de ruta) y al desmontar
     return () => {
       window.removeEventListener('load', onLoad)
       clearTimeout(loadTimer)
@@ -443,16 +398,15 @@ export function useSantaPapa() {
       dropToggle?.removeEventListener('click', onDropToggle)
       document.removeEventListener('click', onOutsideClick)
       if (fixedMediaEls.length) window.removeEventListener('resize', syncFixedMedia)
-      if (magnetRaf!) cancelAnimationFrame(magnetRaf)
+      if (magnetRaf) cancelAnimationFrame(magnetRaf)
       carouselRafs.forEach(r => cancelAnimationFrame(r))
-      if (parRaf!) cancelAnimationFrame(parRaf)
-      if (sfRaf!)  cancelAnimationFrame(sfRaf)
-      if (fwRaf!)  cancelAnimationFrame(fwRaf)
+      if (parRaf) cancelAnimationFrame(parRaf)
+      if (sfRaf)  cancelAnimationFrame(sfRaf)
+      if (fwRaf)  cancelAnimationFrame(fwRaf)
       form?.removeEventListener('submit', onSubmit)
-      // Limpiar clases de estado del body entre páginas
       document.body.classList.remove('hero-scroll-locked', 'nav-open', 'loaded')
       dropToggle?.closest('.nav-drop')?.classList.remove('open')
       dropToggle?.setAttribute('aria-expanded', 'false')
     }
-  }, [pathname]) // ← re-ejecuta en cada cambio de ruta
+  }, [pathname])
 }
