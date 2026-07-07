@@ -359,6 +359,9 @@ body.hero-scroll-locked .site-header{
   opacity:0;
   pointer-events:none;
 }
+body.hero-scroll-locked .site-footer{
+  display:none;
+}
 body.hero-scroll-locked .home-hero-section .vine,
 body.hero-scroll-locked .hero-lockable .vine{
   opacity:0;
@@ -1189,7 +1192,7 @@ body[data-page="pecado"] .grand-hero .full-relic{
   .home-hero-section .hero-overlay .section-kicker{bottom:41px}
   .home-hero-section .scroll-cue{bottom:7px}
   .altar-sanctum{overflow:visible}
-  .home-temptations{padding-top:12px;margin-top:50px}
+  .home-temptations{padding-top:12px;margin-top:50px;z-index:4}
   .home-temptations .section-title.in-view{filter:none;opacity:1;font-size:clamp(20px,7vw,28px);transform:translateY(-25px)}
   .cta-stage{margin-top:100px}
   .home-procession{padding-top:0;margin-top:-105px}

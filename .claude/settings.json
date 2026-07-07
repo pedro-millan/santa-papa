@@ -52,7 +52,13 @@
       "Bash(sips -g pixelHeight footer-full.png)",
       "Bash(grep -o \".\\\\{0,20\\\\}site-footer::before{[^}]*}.\\\\{0,20\\\\}\")",
       "Bash(curl -s \"http://localhost:3001/_next/static/chunks/app_globals_0yg4wg8.css\" -o /tmp/g.css)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/privacidad)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/privacidad)",
+      "Bash(grep -o \"\\\\.reveal[^,{]*{[^}]*}\" /Users/saico.noise/Downloads/santa-papa-web/app/globals.css)",
+      "Bash(node -e \"require\\('puppeteer'\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3001/?debugcta=1\")",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\n\" \"http://localhost:3001/\")",
+      "Bash(curl -s -o /dev/null -w \"pecado: %{http_code}\\\\n\" \"http://localhost:3001/pecado\")",
+      "Bash(curl -s \"http://localhost:3001/\")"
     ]
   }
 }
