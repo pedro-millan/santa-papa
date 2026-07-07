@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import CommentBoard from '../components/CommentBoard'
 import { getComments } from '../lib/comments'
 export const metadata: Metadata = { title: 'Plegarias · Santa Papa' }
+export const dynamic = 'force-dynamic'
 export default async function PlegariasPage() {
   const comments = await getComments()
   return (
