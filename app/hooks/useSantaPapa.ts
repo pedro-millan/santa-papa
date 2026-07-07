@@ -28,6 +28,7 @@ export function useSantaPapa() {
   useEffect(() => {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
     const fine   = matchMedia('(pointer:fine)').matches
+    const isTablet = matchMedia('(min-width:981px) and (max-width:1024px)').matches
     const isMobile = matchMedia('(max-width:980px)').matches
 
     const pageMeta: Record<string, { page: string; accent: string; product?: boolean }> = {
@@ -97,8 +98,9 @@ export function useSantaPapa() {
     const fixedMediaEls = isMobile ? [] : [...document.querySelectorAll<HTMLElement>('.fixed-media')]
     const syncFixedMedia = () => fixedMediaEls.forEach(el => {
       const rect = el.getBoundingClientRect()
-      el.style.backgroundSize = `${rect.width}px auto`
-      el.style.backgroundPositionX = `${rect.left}px`
+      const zoom = parseFloat(el.dataset.zoom || '1') * (isTablet ? parseFloat(el.dataset.tabletZoom || '1') : 1)
+      el.style.backgroundSize = `${rect.width * zoom}px auto`
+      el.style.backgroundPositionX = `${rect.left - (rect.width * (zoom - 1)) / 2}px`
     })
     if (fixedMediaEls.length) { syncFixedMedia(); window.addEventListener('resize', syncFixedMedia) }
 
@@ -170,6 +172,8 @@ export function useSantaPapa() {
         window.addEventListener('pointerdown', () => { clearTimeout(clickTimer); cursor.classList.add('is-clicked') })
         window.addEventListener('pointerup',   () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => cursor.classList.remove('is-clicked'), 180) })
         window.addEventListener('pointercancel', () => cursor.classList.remove('is-clicked'))
+        document.addEventListener('mouseleave', () => { cursor.style.opacity = '0' })
+        document.addEventListener('mouseenter', () => { cursor.style.opacity = '' })
       }
 
       const triggers: ReturnType<typeof ScrollTrigger.create>[] = []

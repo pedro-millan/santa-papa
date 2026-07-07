@@ -10,7 +10,7 @@ export default function CeremoniaPage() {
         <div className="scroll-cue" aria-hidden="true"><span /></div>
       </div>
     </section>
-    <section className="section-pad ceremony-intro" style={{textAlign:'center'}}>
+    <section className="section-pad ceremony-intro reveal" style={{textAlign:'center'}}>
       <span className="eyebrow">La Ceremonia</span>
       <h1>Abrir una bolsa también puede ser un rito.</h1>
       <p>Por eso os presentamos nuestro Manual del Crujido:</p>
@@ -22,8 +22,8 @@ export default function CeremoniaPage() {
       <article className="reveal"><img src="/img/Alcachofa 3.webp" alt="manos sobre bolsa de patatas" /><span>04</span><h3>Compartir sin prisa</h3><p>Santa Papa sabe mejor cuando la mesa deja de mirar el reloj.</p></article>
     </div>
     <section className="craft section-pad fixed-craft">
-      <div className="fixed-media" style={{backgroundImage:"url('/img/Patatas 1.webp')"}} />
-      <div className="craft-copy reveal"><span className="section-kicker">Cómo lo hacemos</span><h2 className="section-title">Crujido fino, estética oscura y sabor reconocible.</h2><p>Imaginamos cada variedad como una pieza de diseño: materia prima, sabor, color, bolsa, fotografía y ceremonia deben pertenecer al mismo universo.</p></div>
+      <div className="fixed-media" data-zoom="1.5" style={{backgroundImage:"linear-gradient(180deg,rgba(3,3,3,.85),transparent 16%,transparent 84%,rgba(3,3,3,.85)),url('/img/Patatas 1.webp')"}} />
+      <div className="craft-copy reveal"><span className="section-kicker">Cómo lo hacemos</span><h2 className="section-title">Crujido fino, estética celestial y sabor sagrado.</h2><p>Imaginamos cada variedad como una consagración vegetal que auna sabor, color, presencia y ceremonia. Te harás adepto.</p></div>
     </section>
   </main>)
 }

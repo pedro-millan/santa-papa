@@ -15,7 +15,7 @@ export default function BoniatoPage() {
     </section>
     <section className="moving-bag section-pad">
       <img className="halo-bg" src="/img/halo.webp" alt="" />
-      <div className="bag-copy reveal"><h2 className="section-title">Boniato · Pimentón & Lime</h2><p>Rojiza, dulce y peligrosa. Una pieza pensada para estar en la mano, en la mesa y en la foto.</p></div>
+      <div className="bag-copy reveal"><h2 className="section-title">Boniato · Pimentón & Lime</h2><p>Rojiza, dulce y tentadora. Una pieza a la que rendir culto desde el paladar.</p></div>
       <div className="bag-stage reveal" data-tilt=""><img src="/img/product-boniato.webp" alt="Bolsa Boniato" /><img className="bag-design" src="/img/chips-boniato-flight.webp" alt="Diseño de bolsa Boniato" /></div>
     </section>
     <section className="manifest section-pad reveal">

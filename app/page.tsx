@@ -32,8 +32,7 @@ export default function SantuarioPage() {
 
         <section className="product-altars section-pad altar-sanctum home-temptations">
           <div className="home-temptations-bg" data-fade-with=".home-bag-grid" style={{backgroundImage:"url('/img/tres.webp')"}} aria-hidden="true" />
-          <img className="section-vine section-vine-left" src="/img/flowers-left.webp" alt="" />
-          <img className="section-vine section-vine-right" src="/img/flowers-right.webp" alt="" />
+
           <img className="halo-bg" src="/img/halo.webp" alt="" />
           <h2 className="section-title in-view" data-scroll-fade="">Tres tentaciones, una misma ceremonia.</h2>
           <div className="home-bag-grid">

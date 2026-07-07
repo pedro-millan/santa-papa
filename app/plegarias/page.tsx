@@ -19,6 +19,7 @@ export default async function PlegariasPage() {
     </section>
     <section className="contact-section section-pad">
       <img className="section-vine section-vine-left" src="/img/flowers-left.webp" alt="" />
+      <img className="section-vine section-vine-right" src="/img/flowers-right.webp" alt="" />
       <CommentBoard initialComments={comments} />
       <div className="contact-copy reveal"><h2 className="section-title">Habla ahora, pecador.</h2></div>
       <form className="contact-form reveal" data-contact-form="">

@@ -10,23 +10,23 @@ export default function GenesisPage() {
         <div className="scroll-cue" aria-hidden="true"><span /></div>
       </div>
     </section>
-    <section className="section-pad genesis-intro" style={{textAlign:'center'}}>
+    <section className="section-pad genesis-intro reveal" style={{textAlign:'center'}}>
       <span className="eyebrow">Génesis</span>
       <h1>Venimos del hambre de hacer algo distinto.</h1>
-      <h2>Hacemos chips gourmet dirigidos hacia una despensa menos genérica:</h2>
-      <h3>Snacks de aperitivo cuya presencia no depende de la exaltación de colores vívidos y formas llamativas.</h3>
+      <h2>Hacemos chips gourmet dirigidos hacia una despensa menos genérica.</h2>
+      <h3>La presencia de los snacks de Santa Papa no depende de la exaltación de colores vívidos y formas llamativas.</h3>
       <br />
-      <h3>Nos destaca la discreción, la elegancia.</h3>
-      <h3>Nos destaca la vanalidad sutil que llama tu atención sin armar escándalo.</h3>
+      <h3>Los destaca la discreción, la elegancia.</h3>
+      <h3>Los destaca la vanalidad sutil que llama tu atención sin armar escándalo.</h3>
     </section>
     <section className="image-liturgy section-pad genesis-liturgy">
-      <article className="parallax-card"><div className="fixed-media cartel-cocina-media" style={{backgroundImage:"url('/img/cartel-cocina.webp')"}} /><div><span>&quot;Pensat i fet&quot;</span><h3>Del imaginario a la cocina</h3><p>Santa Papa nace de una idea diferenciadora que rompe definitivamente con el concepto imperante de packaging sobreestimulante. Todo partió de ahí.</p></div></article>
+      <article className="parallax-card"><div className="fixed-media cartel-cocina-media" data-tablet-zoom="1.4" style={{backgroundImage:"url('/img/cartel-cocina.webp')"}} /><div><span>&quot;Pensat i fet&quot;</span><h3>Del imaginario a la cocina</h3><p>Santa Papa nace de una idea diferenciadora que rompe definitivamente con el concepto imperante de packaging sobreestimulante. Todo partió de ahí, en la Comunidad Valenciana y con el carácter Mediterráneo que sella la bendición de una marca diferenciadora.</p></div></article>
     </section>
     <section className="image-liturgy section-pad genesis-liturgy">
-      <article className="parallax-card reverse"><div className="fixed-media cartel-cocina-media" style={{backgroundImage:"url('/img/mano-variedades-2.webp')"}} /><div><span>&quot;La concepción&quot;</span><h3>Tres epifanías del snack</h3><p>Con unos cimientos claros, y la vista clavada en un horizonte innovador, se gestaron 3 variedades de producto partiendo de propuestas naturales, sanas y sabrosas: la patata, el boniato y la alcachofa.</p></div></article>
+      <article className="parallax-card reverse"><div className="fixed-media cartel-cocina-media" data-tablet-zoom="1.4" style={{backgroundImage:"url('/img/mano-variedades-2.webp')"}} /><div><span>&quot;La concepción&quot;</span><h3>Tres epifanías del snack</h3><p>Con unos cimientos claros, y la vista clavada en un horizonte innovador, se gestaron 3 variedades de producto partiendo de propuestas naturales, sanas y sabrosas: la patata, el boniato y la alcachofa. Indultadas por la fritura misma.</p></div></article>
     </section>
     <section className="image-liturgy section-pad genesis-liturgy">
-      <article className="parallax-card"><div className="fixed-media cartel-cocina-media altar-media" style={{backgroundImage:"url('/img/bodegon-patata-altar.webp')"}} /><div><span>&quot;El resultado&quot;</span><h3>Venerado azabache</h3><p>El culmen fue Santa Papa: marca en la que convergen una sátira pulcritud y un producto premium para dar a luz un nuevo prisma desde el que ver el aperitivo.</p></div></article>
+      <article className="parallax-card"><div className="fixed-media cartel-cocina-media altar-media" data-tablet-zoom="1.4" style={{backgroundImage:"url('/img/bodegon-patata-altar.webp')"}} /><div><span>&quot;El resultado&quot;</span><h3>Venerado azabache</h3><p>El culmen fue Santa Papa: marca en la que convergen una sátira pulcritud y un producto premium para dar a luz un nuevo prisma desde el que ver el aperitivo.</p></div></article>
     </section>
   </main>)
 }
