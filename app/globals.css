@@ -1210,7 +1210,7 @@ body[data-page="pecado"] .grand-hero .full-relic{
   body.hero-scroll-locked .home-hero-section,
   body.hero-scroll-locked .hero-lockable{max-height:100lvh}
   body.hero-scroll-locked .home-temptations .section-title{transform:none}
-  .site-header{background:rgba(3,3,3,.32);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .site-header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
   .nav-drop{padding-bottom:0;margin-bottom:0;display:grid;grid-template-columns:1fr auto}
   .nav-drop>a{grid-column:1}
   .nav-drop-toggle{display:flex;grid-column:2;align-items:center;justify-content:center;width:42px;height:42px;background:transparent;border:1px solid rgba(197,134,65,.55);color:#fff;font-size:14px}

@@ -46,7 +46,8 @@
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --window-size=1440,900 --virtual-time-budget=3200 --dump-dom \"http://localhost:3001/?autoclick=1\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --window-size=1440,900 --virtual-time-budget=4000 --dump-dom \"http://localhost:3001/?autoclick=1\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --window-size=1440,900 --virtual-time-budget=3500 --dump-dom \"http://localhost:3001/?autoclick=1\")",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --window-size=390,844 --virtual-time-budget=3500 --dump-dom \"http://localhost:3001/?autoclick=1\")"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --window-size=390,844 --virtual-time-budget=3500 --dump-dom \"http://localhost:3001/?autoclick=1\")",
+      "Bash(grep -n \"site-header{background:rgba\\(3,3,3,.32\\)\" /Users/saico.noise/Downloads/santa-papa-web/app/globals.css)"
     ]
   }
 }
