@@ -1187,7 +1187,7 @@ body[data-page="pecado"] .grand-hero .full-relic{
   .home-temptations-bg{background-attachment:scroll}
   .home-hero-section .hero-overlay h1{font-size:clamp(56px,18vw,110px);color:rgba(197,134,65,.95);transform:translateY(-145px)}
   body[data-page="santuario"] .grand-hero .full-relic{top:calc(50% + 30px)}
-  .pecado-hero .vine{top:95%}
+  .pecado-hero .vine{top:95%;z-index:3}
   body[data-page="pecado"] .altar-sanctum .section-title{margin-top:55px}
   .home-hero-section .hero-overlay .section-kicker{bottom:41px}
   .home-hero-section .scroll-cue{bottom:7px}
@@ -1223,10 +1223,10 @@ body[data-page="pecado"] .grand-hero .full-relic{
   .nav-drop-toggle[aria-expanded="true"]::after{content:"–"}
   .nav-drop .drop-panel{grid-column:1/-1;display:none;position:static;opacity:1;transform:none;pointer-events:auto;min-width:0;margin-top:8px}
   .nav-drop.open .drop-panel{display:grid}
-  .home-bag-grid{grid-template-columns:repeat(3,1fr);width:94vw;gap:8px;align-items:center}
+  .home-bag-grid{grid-template-columns:repeat(3,1fr);width:100%;gap:4px;align-items:center}
   .home-bag-card{grid-template-rows:1fr;min-height:0;padding:0}
   .home-bag-visual{height:auto;min-height:0}
-  .home-bag-card img{width:100%;max-width:130px;height:auto}
+  .home-bag-card img{width:100%;max-width:160px;height:auto}
   .home-bag-card .number{font-size:11px}
   .home-ritual-video{grid-template-columns:minmax(120px,.9fr) minmax(150px,1.1fr);grid-template-areas:"copy video";gap:12px;min-height:auto;padding-block:0}
   .home-ritual-video .home-video-frame{width:100%;height:auto;justify-self:stretch}
@@ -1288,7 +1288,7 @@ body[data-page="pecado"] .grand-hero .full-relic{
   .plegarias-hero .vine{top:28%}
   .plegarias-hero + .contact-section{margin-top:-38svh;padding-top:16px;position:relative;z-index:2;background:#030303}
   .pecado-hero .scroll-cue{display:none}
-  .pecado-hero{min-height:0}
+  .pecado-hero{min-height:0;overflow:visible}
   .pecado-hero .hero-shell{height:68svh}
   .pecado-hero + .product-altars.section-pad{margin-top:-16svh;padding-top:20px;position:relative;z-index:2;background:#030303}
 }

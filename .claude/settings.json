@@ -58,7 +58,10 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3001/?debugcta=1\")",
       "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\n\" \"http://localhost:3001/\")",
       "Bash(curl -s -o /dev/null -w \"pecado: %{http_code}\\\\n\" \"http://localhost:3001/pecado\")",
-      "Bash(curl -s \"http://localhost:3001/\")"
+      "Bash(curl -s \"http://localhost:3001/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3001/pecado\")",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/saico.noise/Downloads/santa-papa-web/public/img/LOGO-09tr.png)",
+      "Bash(grep -o \"home-bag-grid{grid-template-columns:repeat\\(3,1fr\\)[^}]*}\")"
     ]
   }
 }
