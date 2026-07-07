@@ -1196,10 +1196,12 @@ body[data-page="pecado"] .grand-hero .full-relic{
   .home-procession .tail-carousel .fade-slide{width:min(94vw,620px);height:min(94vh,920px)}
   .home-procession .tail-carousel .fade-slide img{max-width:min(94vw,620px);max-height:min(92vh,900px)}
   .home-procession .tail-carousel .carousel-dots{display:none}
-  .footer-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .footer-logo{margin-top:34px}
+  .footer-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+  .footer-top>div:first-child{position:absolute;left:var(--pad);bottom:0}
+  .site-footer nav{margin-left:auto}
+  .footer-logo{width:80px}
   .site-footer nav{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-  .site-footer::before{background-size:90px auto;top:-40px}
+  .site-footer::before{background-size:180px auto;top:-40px;left:-60px;right:60px}
   .footer-bottom{flex-direction:column;align-items:flex-end;font-size:9px;gap:8px}
   .footer-bottom a{order:-1}
   .home-hero-section .slice-stage{padding:16vh clamp(6px,1vw,16px)}

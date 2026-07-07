@@ -47,7 +47,12 @@
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --window-size=1440,900 --virtual-time-budget=4000 --dump-dom \"http://localhost:3001/?autoclick=1\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --window-size=1440,900 --virtual-time-budget=3500 --dump-dom \"http://localhost:3001/?autoclick=1\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --window-size=390,844 --virtual-time-budget=3500 --dump-dom \"http://localhost:3001/?autoclick=1\")",
-      "Bash(grep -n \"site-header{background:rgba\\(3,3,3,.32\\)\" /Users/saico.noise/Downloads/santa-papa-web/app/globals.css)"
+      "Bash(grep -n \"site-header{background:rgba\\(3,3,3,.32\\)\" /Users/saico.noise/Downloads/santa-papa-web/app/globals.css)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-sandbox --hide-scrollbars --force-prefers-reduced-motion --run-all-compositor-stages-before-draw --window-size=390,1800 --virtual-time-budget=8000 --screenshot=/tmp/footer-logo-check.png \"http://localhost:3001/privacidad\")",
+      "Bash(sips -g pixelHeight footer-full.png)",
+      "Bash(grep -o \".\\\\{0,20\\\\}site-footer::before{[^}]*}.\\\\{0,20\\\\}\")",
+      "Bash(curl -s \"http://localhost:3001/_next/static/chunks/app_globals_0yg4wg8.css\" -o /tmp/g.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/privacidad)"
     ]
   }
 }
